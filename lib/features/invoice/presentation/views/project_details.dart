@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:print_ready_invoice/core/utils/size_config.dart';
-import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_name_input.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_field_input.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_type_input.dart';
 
 class ProjectDetails extends StatefulWidget {
@@ -12,13 +12,11 @@ class ProjectDetails extends StatefulWidget {
 }
 
 class _ProjectDetailsState extends State<ProjectDetails> {
-    final _formKey = GlobalKey<FormBuilderState>();
-    final List<String> projectTypes = ['Mobile App', 'Web App', 'Desktop App'];
+  final _formKey = GlobalKey<FormBuilderState>();
+  final List<String> projectTypes = ['Mobile App', 'Web App', 'Desktop App'];
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       backgroundColor: const Color(0xFFECEEF0),
       body: SingleChildScrollView(
@@ -63,12 +61,13 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                       FormBuilder(
                         key: _formKey,
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            ProjectNameInput(),
-                            ProjectTypeInput(projectTypes: projectTypes,)
+                            ProjectFieldInput(label: 'Project Name',name: 'name',hintText: 'E.g., Corporate Website Redesign',),
+                            ProjectTypeInput(projectTypes: projectTypes),
+                            ProjectFieldInput(label: 'Description (Optional)',name: 'description',hintText: 'Provide a brief description of project',maxLines: 3,),
 
-                          
+
+                            
                           ],
                         ),
                       ),
