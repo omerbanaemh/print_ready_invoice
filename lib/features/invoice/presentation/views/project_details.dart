@@ -4,6 +4,7 @@ import 'package:print_ready_invoice/core/utils/size_config.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/primary_framework_input.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_field_input.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_type_input.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/technologies_dropdown_chips.dart';
 
 class ProjectDetails extends StatefulWidget {
   const ProjectDetails({super.key});
@@ -67,7 +68,8 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                             ProjectFieldInput(label: 'Project Name',name: 'name',hintText: 'E.g., Corporate Website Redesign',),
                             ProjectTypeInput(projectTypes: projectTypes),
                             ProjectFieldInput(label: 'Description (Optional)',name: 'description',hintText: 'Provide a brief description of project',maxLines: 3,),
-                            PrimaryFrameworkInput(frameworks: frameworks)
+                            PrimaryFrameworkInput(frameworks: frameworks),
+                            TechnologiesDropdownChips(),
 
                             
                           ],
