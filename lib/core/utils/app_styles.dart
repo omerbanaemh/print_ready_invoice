@@ -78,6 +78,14 @@ abstract class AppStyles {
     );
   }
 
+    static TextStyle styleSemiBold26(BuildContext context) {
+    return TextStyle(
+      color: const Color(0xFF4192DF),
+      fontSize: getResponsiveFontSize(context, fontSize: 26),
+      fontWeight: FontWeight.w600,
+    );
+  }
+
   // Bold
   static TextStyle styleBold16(BuildContext context) {
     return TextStyle(

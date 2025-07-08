@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
+import 'package:print_ready_invoice/core/utils/locale_provider.dart';
 import 'package:print_ready_invoice/core/utils/size_config.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/generate_invoice_button.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/primary_framework_input.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_field_input.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_type_input.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/technologies_dropdown_chips.dart';
+import 'package:print_ready_invoice/generated/l10n.dart';
+import 'package:provider/provider.dart';
 
 class ProjectDetails extends StatefulWidget {
   const ProjectDetails({super.key});
-
   @override
   State<ProjectDetails> createState() => _ProjectDetailsState();
 }
@@ -29,14 +31,14 @@ class _ProjectDetailsState extends State<ProjectDetails> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            IconButton(
+              icon: const Icon(Icons.language),
+              onPressed: () => context.read<LocaleProvider>().toggleLocale(),
+            ),
             SizedBox(height: 40),
             Text(
-              'PrintReady Invoice',
-              style: TextStyle(
-                color: Color(0xFF4192DF),
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
+              S.of(context).printReady_invoice,
+              style: AppStyles.styleSemiBold26(context),
             ),
             SizedBox(height: 40),
             Center(
@@ -57,9 +59,12 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                     children: [
                       Text(
                         'Project Details',
-                        style: AppStyles.styleSemiBold24(context)
+                        style: AppStyles.styleSemiBold20(context),
                       ),
-                      Text('PrintReady Invoice dvsdv ds af fdsa f fdsafds',style: AppStyles.styleRegular12(context),),
+                      Text(
+                        'PrintReady Invoice dvsdv ds af fdsa f fdsafds',
+                        style: AppStyles.styleRegular12(context),
+                      ),
 
                       FormBuilder(
                         key: _formKey,
@@ -81,7 +86,6 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                             PrimaryFrameworkInput(frameworks: frameworks),
                             TechnologiesDropdownChips(),
                             GenerateInvoiceButton(formKey: _formKey),
-
                           ],
                         ),
                       ),
