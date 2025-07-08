@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/core/utils/size_config.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/generate_invoice_button.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/primary_framework_input.dart';
@@ -21,6 +22,7 @@ class _ProjectDetailsState extends State<ProjectDetails> {
 
   @override
   Widget build(BuildContext context) {
+    print('width======== ${SizeConfig.width(context)}');
     return Scaffold(
       backgroundColor: const Color(0xFFECEEF0),
       body: SingleChildScrollView(
@@ -55,12 +57,9 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                     children: [
                       Text(
                         'Project Details',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: AppStyles.styleSemiBold24(context)
                       ),
-                      Text('PrintReady Invoice dvsdv ds af fdsa f fdsafds'),
+                      Text('PrintReady Invoice dvsdv ds af fdsa f fdsafds',style: AppStyles.styleRegular12(context),),
 
                       FormBuilder(
                         key: _formKey,

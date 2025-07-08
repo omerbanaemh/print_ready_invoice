@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/custom_input_decoration.dart';
 
 class TechnologiesDropdownChips extends StatefulWidget {
@@ -25,9 +26,9 @@ class _TechnologiesDropdownChipsState extends State<TechnologiesDropdownChips> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 24),
-        const Text(
+         Text(
           'Technologies Used',
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: AppStyles.styleMedium16(context),
         ),
         SizedBox(height: 8),
         FormBuilderField<List<String>>(
@@ -42,7 +43,7 @@ class _TechnologiesDropdownChipsState extends State<TechnologiesDropdownChips> {
           builder: (field) {
             return InputDecorator(
               decoration: customInputDecoration(
-                hintText: 'Select a Project Type',
+                hintText: 'Select a Project Type',context: context,
                 errorText: field.errorText,
               ),
               child: Wrap(
