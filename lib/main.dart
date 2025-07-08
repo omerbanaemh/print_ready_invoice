@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:print_ready_invoice/core/utils/size_config.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/project_details.dart';
 
 
