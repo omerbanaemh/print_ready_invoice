@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:print_ready_invoice/core/utils/size_config.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_name_input.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_type_input.dart';
 
 class ProjectDetails extends StatefulWidget {
   const ProjectDetails({super.key});
@@ -11,11 +12,14 @@ class ProjectDetails extends StatefulWidget {
 }
 
 class _ProjectDetailsState extends State<ProjectDetails> {
+    final _formKey = GlobalKey<FormBuilderState>();
+    final List<String> projectTypes = ['Mobile App', 'Web App', 'Desktop App'];
+
   @override
   Widget build(BuildContext context) {
-      final formKey = GlobalKey<FormBuilderState>();
 
-       return Scaffold(
+
+    return Scaffold(
       backgroundColor: const Color(0xFFECEEF0),
       body: SingleChildScrollView(
         child: Column(
@@ -56,19 +60,15 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                       ),
                       Text('PrintReady Invoice dvsdv ds af fdsa f fdsafds'),
 
-                     
-
                       FormBuilder(
-                        key: formKey,
+                        key: _formKey,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                          ProjectNameInput(),
+                            ProjectNameInput(),
+                            ProjectTypeInput(projectTypes: projectTypes,)
 
-                        
-                
-                            
-
+                          
                           ],
                         ),
                       ),
