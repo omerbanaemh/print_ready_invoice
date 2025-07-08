@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:print_ready_invoice/core/utils/size_config.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/generate_invoice_button.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/primary_framework_input.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_field_input.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_type_input.dart';
@@ -65,13 +66,23 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                         key: _formKey,
                         child: Column(
                           children: [
-                            ProjectFieldInput(label: 'Project Name',name: 'name',hintText: 'E.g., Corporate Website Redesign',),
+                            ProjectFieldInput(
+                              label: 'Project Name',
+                              name: 'name',
+                              hintText: 'E.g., Corporate Website Redesign',
+                            ),
                             ProjectTypeInput(projectTypes: projectTypes),
-                            ProjectFieldInput(label: 'Description (Optional)',name: 'description',hintText: 'Provide a brief description of project',maxLines: 3,),
+                            ProjectFieldInput(
+                              label: 'Description (Optional)',
+                              name: 'description',
+                              hintText:
+                                  'Provide a brief description of project',
+                              maxLines: 3,
+                            ),
                             PrimaryFrameworkInput(frameworks: frameworks),
                             TechnologiesDropdownChips(),
+                            GenerateInvoiceButton(formKey: _formKey),
 
-                            
                           ],
                         ),
                       ),
