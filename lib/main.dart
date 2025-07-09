@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:print_ready_invoice/core/utils/locale_provider.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/views/invoice_view.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/project_details.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
     final locale = context.watch<LocaleProvider>().locale;
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
@@ -35,7 +37,7 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: S.delegate.supportedLocales,
 
-      home: ProjectDetails(),
+      home: InvoiceView(),
     );
   }
 }
