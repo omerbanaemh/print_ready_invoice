@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
 
       home: InvoiceView(),
+      // home: ProjectDetails(),
     );
   }
 }

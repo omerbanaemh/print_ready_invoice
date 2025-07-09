@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_button.dart';
-import 'package:print_ready_invoice/generated/l10n.dart';
 
 class CustomInvoiceAppBar extends StatelessWidget {
   const CustomInvoiceAppBar({
@@ -14,7 +13,7 @@ class CustomInvoiceAppBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          S.of(context).printReady_invoice,
+          'Onyx IX Solutions',
           style: AppStyles.styleSemiBold26(context),
         ),
         Row(

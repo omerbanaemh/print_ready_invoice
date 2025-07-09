@@ -42,7 +42,7 @@ class CustomButton extends StatelessWidget {
               SizedBox( width: icon == null || text == null? 0 : 6),
               Text(
                 text ?? '',
-                style: AppStyles.styleMedium16(
+                style: AppStyles.styleRegular14(
                   context,
                 ).copyWith(
                   color: foregroundColor,),
