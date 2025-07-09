@@ -24,7 +24,7 @@ class _ProjectDetailsState extends State<ProjectDetails> {
 
   @override
   Widget build(BuildContext context) {
-    print('width======== ${SizeConfig.width(context)}');
+    // print('width======== ${SizeConfig.width(context)}');
     return Scaffold(
       backgroundColor: const Color(0xFFECEEF0),
       body: SingleChildScrollView(
@@ -58,11 +58,11 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Project Details',
+                        S.of(context).project_details,
                         style: AppStyles.styleSemiBold20(context),
                       ),
                       Text(
-                        'PrintReady Invoice dvsdv ds af fdsa f fdsafds',
+                        S.of(context).printReady_invoice_description,
                         style: AppStyles.styleRegular12(context),
                       ),
 
@@ -71,16 +71,16 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                         child: Column(
                           children: [
                             ProjectFieldInput(
-                              label: 'Project Name',
+                              label: S.of(context).project_name,
                               name: 'name',
-                              hintText: 'E.g., Corporate Website Redesign',
+                              hintText: S.of(context).project_name_hint,
                             ),
                             ProjectTypeInput(projectTypes: projectTypes),
                             ProjectFieldInput(
-                              label: 'Description (Optional)',
+                              label: S.of(context).project_description,
                               name: 'description',
                               hintText:
-                                  'Provide a brief description of project',
+                                  S.of(context).project_description_hint,
                               maxLines: 3,
                             ),
                             PrimaryFrameworkInput(frameworks: frameworks),

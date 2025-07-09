@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
+import 'package:print_ready_invoice/generated/l10n.dart';
 
 class GenerateInvoiceButton extends StatelessWidget {
   const GenerateInvoiceButton({super.key, required this.formKey});
@@ -32,7 +33,7 @@ class GenerateInvoiceButton extends StatelessWidget {
               width: double.infinity,
               child: Center(
                 child: Text(
-                  'Generate Invoice',
+                  S.of(context).generate_invoice,
                   style: AppStyles.styleMedium16(context).copyWith(
                     color: Colors.white,
                   ),

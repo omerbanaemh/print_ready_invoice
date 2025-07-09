@@ -1,3 +1,17 @@
 {
-        "printReady_invoice" : "PrintReady Invoice"
+        "printReady_invoice" : "PrintReady Invoice",
+        "project_details" : "Project Details",
+        "printReady_invoice_description" : "Fill in the details below to generate your invoice",
+        "project_name" : "Project Name",
+        "project_name_hint" : "E.g., Corporate Website Redesign",
+        "project_description" : "Description (Optional)",
+        "project_description_hint" : "Provide a brief description of project",
+        "project_type" : "Project Type",
+        "project_type_hint" : "Select the type of project",
+        "project_framework" : "Project Framework",
+        "project_framework_hint" : "Select the framework...",
+        "technologies_used" : "Technologies Used",
+        "technologies_used_hint" : "Select Technologies...",
+        "generate_invoice" : "Generate Invoice"
+
 }

@@ -3,6 +3,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/custom_input_decoration.dart';
+import 'package:print_ready_invoice/generated/l10n.dart';
 
 class ProjectTypeInput extends StatelessWidget {
   const ProjectTypeInput({super.key, required this.projectTypes});
@@ -13,11 +14,11 @@ class ProjectTypeInput extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 24),
-        Text('Project Type', style: AppStyles.styleMedium16(context)),
+        Text(S.of(context).project_type, style: AppStyles.styleMedium16(context)),
         SizedBox(height: 8),
         FormBuilderDropdown<String>(
           name: 'project_type',
-          decoration: customInputDecoration(hintText: 'Select a Project Type',context: context),
+          decoration: customInputDecoration(hintText: S.of(context).project_type_hint,context: context),
           items: projectTypes
               .map((item) => DropdownMenuItem(value: item, child: Text(item)))
               .toList(),

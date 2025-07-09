@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/custom_input_decoration.dart';
+import 'package:print_ready_invoice/generated/l10n.dart';
 
 class TechnologiesDropdownChips extends StatefulWidget {
   const TechnologiesDropdownChips({super.key});
@@ -27,7 +28,7 @@ class _TechnologiesDropdownChipsState extends State<TechnologiesDropdownChips> {
       children: [
         SizedBox(height: 24),
          Text(
-          'Technologies Used',
+          S.of(context).technologies_used,
           style: AppStyles.styleMedium16(context),
         ),
         SizedBox(height: 8),
@@ -65,7 +66,7 @@ class _TechnologiesDropdownChipsState extends State<TechnologiesDropdownChips> {
                   DropdownButton<String>(
                     key: UniqueKey(),
                     value: null,
-                    hint: const Text("Select Technologies..."),
+                    hint:  Text(S.of(context).technologies_used_hint),
                     underline: const SizedBox(),
                     icon: const Icon(Icons.arrow_drop_down),
                     items: technologies

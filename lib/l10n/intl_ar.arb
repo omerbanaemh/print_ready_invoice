@@ -1,3 +1,16 @@
 {
-        "printReady_invoice" : "فاتورة جاهزة للطباعة"
+        "printReady_invoice" : "فاتورة جاهزة للطباعة",
+        "project_details" : "تفاصيل المشروع",
+        "printReady_invoice_description" : "املأ التفاصيل أدناه لإنشاء فاتورتك",
+        "project_name" : "اسم المشروع",
+        "project_name_hint" : "على سبيل المثال، إعادة تصميم موقع الويب للشركة",
+        "project_description" : "الوصف (اختياري)",
+        "project_description_hint" : "قدم وصفًا موجزًا للمشروع",
+        "project_type" : "نوع المشروع",
+        "project_type_hint" : "حدد نوع المشروع",
+        "project_framework" : "إطار المشروع",
+        "project_framework_hint" : "حدد الإطار...",
+        "technologies_used" : "التقنيات المستخدمة",
+        "technologies_used_hint" : "حدد التقنيات...",
+        "generate_invoice" : "إنشاء فاتورة"
 }
