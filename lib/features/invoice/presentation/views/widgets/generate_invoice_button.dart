@@ -27,7 +27,7 @@ class GenerateInvoiceButton extends StatelessWidget {
             ),
             onPressed: () {
               if (formKey.currentState!.saveAndValidate()) {
-                final data = formKey.currentState!.value;
+                // final data = formKey.currentState!.value;
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) => InvoiceView(),
                 ));

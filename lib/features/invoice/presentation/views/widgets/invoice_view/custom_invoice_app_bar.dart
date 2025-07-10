@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
+import 'package:print_ready_invoice/core/utils/size_config.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_button.dart';
 
 class CustomInvoiceAppBar extends StatelessWidget {
   const CustomInvoiceAppBar({
-    super.key,
+    super.key, required this.scaffoldKey,
   });
+
+  final GlobalKey<ScaffoldState> scaffoldKey;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,15 @@ class CustomInvoiceAppBar extends StatelessWidget {
           'Onyx IX Solutions',
           style: AppStyles.styleSemiBold26(context),
         ),
-        Flexible(
+
+       SizeConfig.width(context) < SizeConfig.desktop ?
+
+        IconButton(
+                onPressed: () {
+                  scaffoldKey.currentState!.openDrawer();
+                },
+                icon: const Icon(Icons.menu),
+              ):         Flexible(
           child: SizedBox(
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -36,6 +47,7 @@ class CustomInvoiceAppBar extends StatelessWidget {
             ),
           ),
         ),
+
       ],
     );
   }
