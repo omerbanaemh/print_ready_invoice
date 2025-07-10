@@ -45,6 +45,14 @@ abstract class AppStyles {
   }
 
   // SemiBold
+  static TextStyle styleSemiBold14(BuildContext context) {
+    return TextStyle(
+      color: Colors.black,
+      fontSize: getResponsiveFontSize(context, fontSize: 14),
+      fontWeight: FontWeight.w600,
+    );
+  }
+
   static TextStyle styleSemiBold16(BuildContext context) {
     return TextStyle(
       color: Colors.black,
