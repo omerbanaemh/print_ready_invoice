@@ -11,25 +11,28 @@ class InvoiceView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SizedBox(
-          width: SizeConfig.width(context) * 0.6,
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(height: 20),
-                CustomInvoiceAppBar(),
-                SizedBox(height: 20),
-                BlocProvider(
-                  create: (context) => InvoiceCubit()..loadInitial(),
-                  child: CustomInvoiceBody(),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return Center(
+            child: SizedBox(
+              width:constraints.maxWidth > 970 ?  SizeConfig.width(context) / 1.6 : constraints.maxWidth > 790 ?  SizeConfig.width(context) / 1.3 : SizeConfig.width(context) / 1.1,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(height: 20),
+                    CustomInvoiceAppBar(),
+                    SizedBox(height: 20),
+                    BlocProvider(
+                      create: (context) => InvoiceCubit()..loadInitial(),
+                      child: CustomInvoiceBody(),
+                    ),
+                    // CustomInvoiceBody(),
+                  ],
                 ),
-
-                // CustomInvoiceBody(),
-              ],
+              ),
             ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }
