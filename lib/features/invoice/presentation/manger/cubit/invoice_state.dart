@@ -1,0 +1,12 @@
+part of 'invoice_cubit.dart';
+
+@immutable
+sealed class InvoiceState {}
+
+final class InvoiceInitial extends InvoiceState {}
+
+final class InvoiceLoaded extends InvoiceState {
+  final List<ProductModel> productItems;
+
+  InvoiceLoaded(this.productItems);
+}
