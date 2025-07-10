@@ -29,45 +29,49 @@ class CustomInvoiceBodyHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 18,
-                  vertical: 8,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: Colors.black12,
-                ),
-                child: Center(
-                  child: Text(
-                    '150 * 50',
-                    style: AppStyles.styleSemiBold18(
-                      context,
-                    ).copyWith(color: Colors.black38),
+          Flexible(
+            child: Row(
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 18,
+                    vertical: 8,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.black12,
+                  ),
+                  child: Center(
+                    child: Text(
+                      '150 * 50',
+                      style: AppStyles.styleSemiBold18(
+                        context,
+                      ).copyWith(color: Colors.black38),
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(width: 10),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Onyx IX Solutions',
-                    style: AppStyles.styleSemiBold18(
-                      context,
-                    ).copyWith(color: Colors.blue),
+                SizedBox(width: 10),
+                Flexible(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Onyx IX Solutions',
+                        style: AppStyles.styleSemiBold18(
+                          context,
+                        ).copyWith(color: Colors.blue),
+                      ),
+                      Text(
+                        '123 Innovation Drive, Tech City, 12345',
+                        style: AppStyles.styleMedium16(
+                          context,
+                        ).copyWith(color: Colors.black54),
+                      ),
+                    ],
                   ),
-                  Text(
-                    '123 Innovation Drive, Tech City, 12345',
-                    style: AppStyles.styleMedium16(
-                      context,
-                    ).copyWith(color: Colors.black54),
-                  ),
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
           Column(
             children: [

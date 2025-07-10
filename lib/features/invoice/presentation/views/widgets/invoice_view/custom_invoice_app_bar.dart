@@ -16,18 +16,25 @@ class CustomInvoiceAppBar extends StatelessWidget {
           'Onyx IX Solutions',
           style: AppStyles.styleSemiBold26(context),
         ),
-        Row(
-          children: [
-            CustomButton(backgroundColor: Colors.white, foregroundColor: Colors.black, text: 'EN', borderRight: false,),
-            CustomButton(backgroundColor: Colors.white, foregroundColor: Colors.black, text: 'AR',borderLeft: false,),
-            SizedBox(width: 8),
-            CustomButton(backgroundColor: Colors.white, foregroundColor: Colors.black, icon: Icons.light_mode),
-            SizedBox(width: 8),
-            CustomButton(backgroundColor: Colors.white, foregroundColor: Colors.black, text: 'AI Suggest Discount', icon: Icons.lightbulb_outline),
-            SizedBox(width: 8),
-            CustomButton(backgroundColor: Colors.blue, foregroundColor: Colors.white, text: 'Preview Invoice', icon: Icons.print_outlined),
-            SizedBox(width: 8),
-          ],
+        Flexible(
+          child: SizedBox(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  CustomButton(backgroundColor: Colors.white, foregroundColor: Colors.black, text: 'EN', borderRight: false,),
+                  CustomButton(backgroundColor: Colors.white, foregroundColor: Colors.black, text: 'AR',borderLeft: false,),
+                  SizedBox(width: 8),
+                  CustomButton(backgroundColor: Colors.white, foregroundColor: Colors.black, icon: Icons.light_mode),
+                  SizedBox(width: 8),
+                  CustomButton(backgroundColor: Colors.white, foregroundColor: Colors.black, text: 'AI Suggest Discount', icon: Icons.lightbulb_outline),
+                  SizedBox(width: 8),
+                  CustomButton(backgroundColor: Colors.blue, foregroundColor: Colors.white, text: 'Preview Invoice', icon: Icons.print_outlined),
+                  SizedBox(width: 8),
+                ],
+              ),
+            ),
+          ),
         ),
       ],
     );

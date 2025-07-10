@@ -3,12 +3,13 @@ import 'package:print_ready_invoice/core/utils/app_styles.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
-    super.key, required this.backgroundColor, required this.foregroundColor, this.text, this.icon, this.borderLeft, this.borderRight,
+    super.key, required this.backgroundColor, required this.foregroundColor, this.text, this.icon, this.borderLeft, this.borderRight, this.onPressed,
   });
   final Color backgroundColor,foregroundColor;
   final String? text;
   final IconData? icon;
   final bool? borderLeft, borderRight;
+  final Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class CustomButton extends StatelessWidget {
           ),
         ),
       ),
-      onPressed: () {},
+      onPressed: onPressed,
       child: SizedBox(
         child: Center(
           child: Row(
@@ -42,7 +43,7 @@ class CustomButton extends StatelessWidget {
               SizedBox( width: icon == null || text == null? 0 : 6),
               Text(
                 text ?? '',
-                style: AppStyles.styleRegular14(
+                style: AppStyles.styleRegular12(
                   context,
                 ).copyWith(
                   color: foregroundColor,),
