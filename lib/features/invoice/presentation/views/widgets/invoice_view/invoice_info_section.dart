@@ -6,6 +6,7 @@ import 'package:print_ready_invoice/features/invoice/models/product_details_mode
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/clinet_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_rich_text.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/edit_clinet_dialog%20.dart';
+import 'package:print_ready_invoice/generated/l10n.dart';
 
 class InvoiceInfoSection extends StatelessWidget {
   const InvoiceInfoSection({super.key, required this.productDetails});
@@ -22,7 +23,7 @@ final ProductDetailsModel productDetails;
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Bill To:', style: AppStyles.styleSemiBold16(context)),
+                  Text(S.of(context).bill_to, style: AppStyles.styleSemiBold16(context)),
                   SizedBox(height: 10),
                   TextButton(
                     onPressed: () {
@@ -66,16 +67,16 @@ final ProductDetailsModel productDetails;
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Project Details',
+                S.of(context).project_details,
                 style: AppStyles.styleSemiBold16(context),
               ),
               SizedBox(height: 10),
-              CustomRichText(late: 'Name: ', text: productDetails.name),
-              CustomRichText(late: 'Type: ', text: productDetails.type),
-              CustomRichText(late: 'FrameWork: ', text: productDetails.frameWork),
-              CustomRichText(late: 'Technologies: ', text: productDetails.technologies[0]),
+              CustomRichText(late: S.of(context).name_, text: productDetails.name),
+              CustomRichText(late: S.of(context).type, text: productDetails.type),
+              CustomRichText(late: S.of(context).framework, text: productDetails.frameWork),
+              CustomRichText(late: S.of(context).technologies, text: productDetails.technologies[0]),
               CustomRichText(
-                late: 'Description: ',
+                late: S.of(context).description,
                 text: productDetails.description,
               ),
             ],

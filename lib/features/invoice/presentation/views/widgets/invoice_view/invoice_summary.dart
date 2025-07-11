@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/invoice_cubit.dart';
+import 'package:print_ready_invoice/generated/l10n.dart';
 
 class InvoiceSummary extends StatelessWidget {
   const InvoiceSummary({super.key, required this.cubit,});
@@ -19,7 +20,7 @@ final InvoiceCubit cubit;
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Subtotal', style: AppStyles.styleRegular14(context).copyWith(
+                    Text(S.of(context).subtotal, style: AppStyles.styleRegular14(context).copyWith(
                       color: Colors.black54
                     )),
                     Text('\$${(cubit.subtotal).toStringAsFixed(2)}',style: AppStyles.styleRegular14(context).copyWith(
@@ -31,7 +32,7 @@ final InvoiceCubit cubit;
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Tax (8%):', style: AppStyles.styleRegular14(context).copyWith(
+                    Text('${S.of(context).tax} (8%):', style: AppStyles.styleRegular14(context).copyWith(
                       color: Colors.black54
                     )),
                     Text('\$${(cubit.tax).toStringAsFixed(2)}',style: AppStyles.styleRegular14(context).copyWith(
@@ -50,7 +51,7 @@ final InvoiceCubit cubit;
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Grand Total', style: AppStyles.styleSemiBold14(context)),
+                      Text(S.of(context).grand_total, style: AppStyles.styleSemiBold14(context)),
                       Text('\$${(cubit.total).toStringAsFixed(2)}',style: AppStyles.styleSemiBold14(context),),
                     ],
                   ),

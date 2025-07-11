@@ -4,6 +4,7 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/features/invoice/models/product_model.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/invoice_cubit.dart';
+import 'package:print_ready_invoice/generated/l10n.dart';
 
 class InvoiceTable extends StatelessWidget {
   const InvoiceTable({
@@ -23,7 +24,7 @@ class InvoiceTable extends StatelessWidget {
         columns: [
           DataColumn(
             label: Text(
-              'Item',
+              S.of(context).item,
               style: AppStyles.styleRegular12(
                 context,
               ).copyWith(color: Colors.black54),
@@ -31,7 +32,7 @@ class InvoiceTable extends StatelessWidget {
           ),
           DataColumn(
             label: Text(
-              'Quantity',
+              S.of(context).quantity,
               style: AppStyles.styleRegular12(
                 context,
               ).copyWith(color: Colors.black54),
@@ -40,7 +41,7 @@ class InvoiceTable extends StatelessWidget {
           DataColumn(
             label: FittedBox(
               child: Text(
-                'Price',
+              S.of(context).price,
                 style: AppStyles.styleRegular12(
                   context,
                 ).copyWith(color: Colors.black54),
@@ -49,7 +50,7 @@ class InvoiceTable extends StatelessWidget {
           ),
           DataColumn(
             label: Text(
-              'Total',
+              S.of(context).total,
               style: AppStyles.styleRegular12(
                 context,
               ).copyWith(color: Colors.black54),

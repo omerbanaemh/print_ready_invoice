@@ -5,6 +5,7 @@ import 'package:print_ready_invoice/core/utils/size_config.dart';
 import 'package:print_ready_invoice/features/invoice/models/clinet_model.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/clinet_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/custom_input_decoration.dart';
+import 'package:print_ready_invoice/generated/l10n.dart';
 
 class EditUserDialog extends StatelessWidget {
   final ClinetModel clinet;
@@ -29,23 +30,23 @@ class EditUserDialog extends StatelessWidget {
                   initialValue: clinet.name,
                   name: 'name',
                   decoration: customInputDecoration(
-                    hintText: 'hintText',
+                    hintText: S.of(context).name,
                     context: context,
                   ),
                 ),
                 FormBuilderTextField(
                   initialValue: clinet.address,
-                  name: 'address',
+                  name: S.of(context).address,
                   decoration: customInputDecoration(
-                    hintText: 'hintText',
+                    hintText: 'Address',
                     context: context,
                   ),
                 ),
                 FormBuilderTextField(
                   initialValue: clinet.email,
-                  name: 'email',
+                  name: S.of(context).email,
                   decoration: customInputDecoration(
-                    hintText: 'hintText',
+                    hintText: 'Email',
                     context: context,
                   ),
                 ),
@@ -57,7 +58,7 @@ class EditUserDialog extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text('إلغاء'),
+          child: Text(S.of(context).cancel),
         ),
         ElevatedButton(
           onPressed: () {
@@ -73,7 +74,7 @@ class EditUserDialog extends StatelessWidget {
               Navigator.of(context).pop();
             }
           },
-          child: const Text('حفظ'),
+          child: Text(S.of(context).save),
         ),
       ],
     );

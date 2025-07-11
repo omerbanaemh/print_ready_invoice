@@ -22,9 +22,27 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "add_item": MessageLookupByLibrary.simpleMessage("Add Item"),
+    "address": MessageLookupByLibrary.simpleMessage("Address"),
+    "ai_suggest_discount": MessageLookupByLibrary.simpleMessage(
+      "AI Suggest Discount",
+    ),
+    "bill_to": MessageLookupByLibrary.simpleMessage("Bill To:"),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "description": MessageLookupByLibrary.simpleMessage("Description:"),
+    "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "framework": MessageLookupByLibrary.simpleMessage("FrameWork:"),
     "generate_invoice": MessageLookupByLibrary.simpleMessage(
       "Generate Invoice",
     ),
+    "grand_total": MessageLookupByLibrary.simpleMessage("Grand Total"),
+    "invoice": MessageLookupByLibrary.simpleMessage("Invoice"),
+    "invoice_preview": MessageLookupByLibrary.simpleMessage("Invoice Preview"),
+    "item": MessageLookupByLibrary.simpleMessage("Item"),
+    "menu": MessageLookupByLibrary.simpleMessage("Menu"),
+    "name": MessageLookupByLibrary.simpleMessage("Name"),
+    "name_": MessageLookupByLibrary.simpleMessage("Name:"),
+    "price": MessageLookupByLibrary.simpleMessage("Price"),
     "printReady_invoice": MessageLookupByLibrary.simpleMessage(
       "PrintReady Invoice",
     ),
@@ -52,11 +70,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "project_type_hint": MessageLookupByLibrary.simpleMessage(
       "Select the type of project",
     ),
+    "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
+    "save": MessageLookupByLibrary.simpleMessage("Save"),
+    "select_one_technology": MessageLookupByLibrary.simpleMessage(
+      "Please select at least one technology",
+    ),
+    "select_project_type": MessageLookupByLibrary.simpleMessage(
+      "Select a Project Type",
+    ),
+    "subtotal": MessageLookupByLibrary.simpleMessage("Subtotal"),
+    "tax": MessageLookupByLibrary.simpleMessage("Tax"),
+    "technologies": MessageLookupByLibrary.simpleMessage("Technologies:"),
     "technologies_used": MessageLookupByLibrary.simpleMessage(
       "Technologies Used",
     ),
     "technologies_used_hint": MessageLookupByLibrary.simpleMessage(
       "Select Technologies...",
     ),
+    "total": MessageLookupByLibrary.simpleMessage("Total"),
+    "type": MessageLookupByLibrary.simpleMessage("Type:"),
   };
 }

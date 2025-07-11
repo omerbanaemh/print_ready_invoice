@@ -8,6 +8,7 @@ import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/l
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_button.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_invoice_app_bar.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_invoice_body.dart';
+import 'package:print_ready_invoice/generated/l10n.dart';
 
 class InvoiceView extends StatelessWidget {
   InvoiceView({super.key, required this.productDetails});
@@ -68,7 +69,7 @@ class CustomDrawer extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Menu'),
+                      Text(S.of(context).menu),
                       IconButton(
                         icon: Icon(Icons.close),
                         onPressed: () => Navigator.of(context).pop(),
@@ -116,14 +117,14 @@ class CustomDrawer extends StatelessWidget {
                         CustomButton(
                           backgroundColor: Colors.white,
                           foregroundColor: Colors.black,
-                          text: 'AI Suggest Discount',
+                          text: S.of(context).ai_suggest_discount,
                           icon: Icons.lightbulb_outline,
                         ),
                         SizedBox(width: 8),
                         CustomButton(
                           backgroundColor: Colors.blue,
                           foregroundColor: Colors.white,
-                          text: 'Preview Invoice',
+                          text: S.of(context).invoice_preview,
                           icon: Icons.print_outlined,
                           onPressed: () {
                             final cubit = context.read<InvoiceCubit>();

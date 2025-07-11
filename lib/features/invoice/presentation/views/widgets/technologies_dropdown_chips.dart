@@ -37,14 +37,14 @@ class _TechnologiesDropdownChipsState extends State<TechnologiesDropdownChips> {
           initialValue: selectedValues,
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please select at least one technology';
+              return S.of(context).select_one_technology;
             }
             return null;
           },
           builder: (field) {
             return InputDecorator(
               decoration: customInputDecoration(
-                hintText: 'Select a Project Type',context: context,
+                hintText: S.of(context).select_project_type,context: context,
                 errorText: field.errorText,
               ),
               child: Wrap(

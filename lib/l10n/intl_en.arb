@@ -12,6 +12,32 @@
         "project_framework_hint" : "Select the framework...",
         "technologies_used" : "Technologies Used",
         "technologies_used_hint" : "Select Technologies...",
-        "generate_invoice" : "Generate Invoice"
+        "generate_invoice" : "Generate Invoice",
+        "ai_suggest_discount" : "AI Suggest Discount",
+        "invoice_preview" : "Invoice Preview",
+        "invoice" : "Invoice",
+          "add_item": "Add Item",
+            "name": "Name",
+  "address": "Address",
+  "email": "Email",
+    "cancel": "Cancel",
+  "save": "Save",
+    "bill_to": "Bill To:",
+  "name_": "Name:",
+  "type": "Type:",
+  "framework": "FrameWork:",
+  "technologies": "Technologies:",
+  "description": "Description:",
+    "grand_total": "Grand Total",
+  "subtotal": "Subtotal",
+  "tax": "Tax",
+    "total": "Total",
+  "price": "Price",
+  "quantity": "Quantity",
+  "item": "Item",
+    "select_project_type": "Select a Project Type",
+  "select_one_technology": "Please select at least one technology",
+   "menu": "Menu"
+
 
 }

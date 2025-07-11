@@ -6,6 +6,7 @@ import 'package:print_ready_invoice/core/utils/size_config.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/invoice_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/localization_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_button.dart';
+import 'package:print_ready_invoice/generated/l10n.dart';
 
 class CustomInvoiceAppBar extends StatelessWidget {
   const CustomInvoiceAppBar({super.key, required this.scaffoldKey});
@@ -66,14 +67,14 @@ class CustomInvoiceAppBar extends StatelessWidget {
                         CustomButton(
                           backgroundColor: Colors.white,
                           foregroundColor: Colors.black,
-                          text: 'AI Suggest Discount',
+                          text: S.of(context).ai_suggest_discount,
                           icon: Icons.lightbulb_outline,
                         ),
                         SizedBox(width: 8),
                         CustomButton(
                           backgroundColor: Colors.blue,
                           foregroundColor: Colors.white,
-                          text: 'Preview Invoice',
+                          text: S.of(context).printReady_invoice,
                           icon: Icons.print_outlined,
                           onPressed: () {
                             final cubit = context.read<InvoiceCubit>();

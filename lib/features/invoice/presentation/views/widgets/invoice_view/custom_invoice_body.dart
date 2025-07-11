@@ -9,6 +9,7 @@ import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/invoice_info_section.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/invoice_summary.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/invoice_table.dart';
+import 'package:print_ready_invoice/generated/l10n.dart';
 
 class CustomInvoiceBody extends StatelessWidget {
   const CustomInvoiceBody({super.key, required this.productDetails});
@@ -81,7 +82,7 @@ final ProductDetailsModel productDetails;
                               CustomButton(
                                 backgroundColor: Color(0xFFF3F3F3),
                                 foregroundColor: Colors.black,
-                                text: 'Add Item',
+                                text: S.of(context).add_item,
                                 icon: Icons.add,
                                 onPressed: () {
                                   cubit.addItem();

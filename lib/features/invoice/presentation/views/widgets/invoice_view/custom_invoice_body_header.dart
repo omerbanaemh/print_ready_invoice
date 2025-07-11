@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
+import 'package:print_ready_invoice/generated/l10n.dart';
 
 class CustomInvoiceBodyHeader extends StatelessWidget {
   const CustomInvoiceBodyHeader({
@@ -76,7 +77,7 @@ class CustomInvoiceBodyHeader extends StatelessWidget {
           Column(
             children: [
               Text(
-                'INVOICE',
+                S.of(context).invoice,
                 style: AppStyles.styleSemiBold24(context),
               ),
               Text(

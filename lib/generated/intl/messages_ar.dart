@@ -22,7 +22,25 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "add_item": MessageLookupByLibrary.simpleMessage("إضافة عنصر"),
+    "address": MessageLookupByLibrary.simpleMessage("العنوان"),
+    "ai_suggest_discount": MessageLookupByLibrary.simpleMessage(
+      "اقتراح خصم بالذكاء الاصطناعي",
+    ),
+    "bill_to": MessageLookupByLibrary.simpleMessage("فاتورة إلى:"),
+    "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+    "description": MessageLookupByLibrary.simpleMessage("الوصف:"),
+    "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "framework": MessageLookupByLibrary.simpleMessage("الإطار:"),
     "generate_invoice": MessageLookupByLibrary.simpleMessage("إنشاء فاتورة"),
+    "grand_total": MessageLookupByLibrary.simpleMessage("المجموع الكلي"),
+    "invoice": MessageLookupByLibrary.simpleMessage("فاتورة"),
+    "invoice_preview": MessageLookupByLibrary.simpleMessage("معاينة الفاتورة"),
+    "item": MessageLookupByLibrary.simpleMessage("العنصر"),
+    "menu": MessageLookupByLibrary.simpleMessage("القائمة"),
+    "name": MessageLookupByLibrary.simpleMessage("الاسم"),
+    "name_": MessageLookupByLibrary.simpleMessage("الاسم:"),
+    "price": MessageLookupByLibrary.simpleMessage("السعر"),
     "printReady_invoice": MessageLookupByLibrary.simpleMessage(
       "فاتورة جاهزة للطباعة",
     ),
@@ -48,11 +66,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "project_type_hint": MessageLookupByLibrary.simpleMessage(
       "حدد نوع المشروع",
     ),
+    "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
+    "save": MessageLookupByLibrary.simpleMessage("حفظ"),
+    "select_one_technology": MessageLookupByLibrary.simpleMessage(
+      "يرجى اختيار تقنية واحدة على الأقل",
+    ),
+    "select_project_type": MessageLookupByLibrary.simpleMessage(
+      "اختر نوع المشروع",
+    ),
+    "subtotal": MessageLookupByLibrary.simpleMessage("المجموع الفرعي"),
+    "tax": MessageLookupByLibrary.simpleMessage("الضريبة"),
+    "technologies": MessageLookupByLibrary.simpleMessage("التقنيات:"),
     "technologies_used": MessageLookupByLibrary.simpleMessage(
       "التقنيات المستخدمة",
     ),
     "technologies_used_hint": MessageLookupByLibrary.simpleMessage(
       "حدد التقنيات...",
     ),
+    "total": MessageLookupByLibrary.simpleMessage("الإجمالي"),
+    "type": MessageLookupByLibrary.simpleMessage("النوع:"),
   };
 }

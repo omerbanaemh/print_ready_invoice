@@ -193,6 +193,161 @@ class S {
       args: [],
     );
   }
+
+  /// `AI Suggest Discount`
+  String get ai_suggest_discount {
+    return Intl.message(
+      'AI Suggest Discount',
+      name: 'ai_suggest_discount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invoice Preview`
+  String get invoice_preview {
+    return Intl.message(
+      'Invoice Preview',
+      name: 'invoice_preview',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invoice`
+  String get invoice {
+    return Intl.message('Invoice', name: 'invoice', desc: '', args: []);
+  }
+
+  /// `Add Item`
+  String get add_item {
+    return Intl.message('Add Item', name: 'add_item', desc: '', args: []);
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message('Name', name: 'name', desc: '', args: []);
+  }
+
+  /// `Address`
+  String get address {
+    return Intl.message('Address', name: 'address', desc: '', args: []);
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message('Save', name: 'save', desc: '', args: []);
+  }
+
+  /// `Bill To:`
+  String get bill_to {
+    return Intl.message('Bill To:', name: 'bill_to', desc: '', args: []);
+  }
+
+  /// `Name:`
+  String get name_ {
+    return Intl.message('Name:', name: 'name_', desc: '', args: []);
+  }
+
+  /// `Type:`
+  String get type {
+    return Intl.message('Type:', name: 'type', desc: '', args: []);
+  }
+
+  /// `FrameWork:`
+  String get framework {
+    return Intl.message('FrameWork:', name: 'framework', desc: '', args: []);
+  }
+
+  /// `Technologies:`
+  String get technologies {
+    return Intl.message(
+      'Technologies:',
+      name: 'technologies',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description:`
+  String get description {
+    return Intl.message(
+      'Description:',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Grand Total`
+  String get grand_total {
+    return Intl.message('Grand Total', name: 'grand_total', desc: '', args: []);
+  }
+
+  /// `Subtotal`
+  String get subtotal {
+    return Intl.message('Subtotal', name: 'subtotal', desc: '', args: []);
+  }
+
+  /// `Tax`
+  String get tax {
+    return Intl.message('Tax', name: 'tax', desc: '', args: []);
+  }
+
+  /// `Total`
+  String get total {
+    return Intl.message('Total', name: 'total', desc: '', args: []);
+  }
+
+  /// `Price`
+  String get price {
+    return Intl.message('Price', name: 'price', desc: '', args: []);
+  }
+
+  /// `Quantity`
+  String get quantity {
+    return Intl.message('Quantity', name: 'quantity', desc: '', args: []);
+  }
+
+  /// `Item`
+  String get item {
+    return Intl.message('Item', name: 'item', desc: '', args: []);
+  }
+
+  /// `Select a Project Type`
+  String get select_project_type {
+    return Intl.message(
+      'Select a Project Type',
+      name: 'select_project_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select at least one technology`
+  String get select_one_technology {
+    return Intl.message(
+      'Please select at least one technology',
+      name: 'select_one_technology',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Menu`
+  String get menu {
+    return Intl.message('Menu', name: 'menu', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
