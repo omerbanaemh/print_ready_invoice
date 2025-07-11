@@ -33,10 +33,10 @@ class GenerateInvoiceButton extends StatelessWidget {
                   builder: (context) => InvoiceView(
                     productDetails: ProductDetailsModel(
                       name:  values['name'],
-                       type: values['name'],
-                        frameWork: values['name'],
-                         technologies: values['name'],
-                          description: values['name'],
+                       type: values['project_type'],
+                        frameWork: values['primary_framework'],
+                         technologies: values['technologies_used'],
+                          description: values['description'],
                           ),),
                 ));
               }

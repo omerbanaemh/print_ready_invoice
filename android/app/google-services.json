@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "724762452264",
+    "project_id": "testtrello-57ec7",
+    "storage_bucket": "testtrello-57ec7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724762452264:android:2f2fad6d594d791f05b01d",
+        "android_client_info": {
+          "package_name": "com.example.print_ready_invoice"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEQmTDvmK7BOD8ztIueYGstcDahWnMWMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,39 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "testtrello-57ec7",
+          "appId": "1:724762452264:android:2f2fad6d594d791f05b01d",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "testtrello-57ec7",
+          "configurations": {
+            "android": "1:724762452264:android:2f2fad6d594d791f05b01d",
+            "ios": "1:724762452264:ios:20599b943227328905b01d",
+            "macos": "1:724762452264:ios:20599b943227328905b01d",
+            "web": "1:724762452264:web:6d41dabe4d63b48105b01d",
+            "windows": "1:724762452264:web:da991670446d8fca05b01d"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

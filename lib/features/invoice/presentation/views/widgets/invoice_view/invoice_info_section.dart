@@ -74,7 +74,7 @@ final ProductDetailsModel productDetails;
               CustomRichText(late: S.of(context).name_, text: productDetails.name),
               CustomRichText(late: S.of(context).type, text: productDetails.type),
               CustomRichText(late: S.of(context).framework, text: productDetails.frameWork),
-              CustomRichText(late: S.of(context).technologies, text: productDetails.technologies[0]),
+              CustomRichText(late: S.of(context).technologies, text: productDetails.technologies.join(', ')),
               CustomRichText(
                 late: S.of(context).description,
                 text: productDetails.description,

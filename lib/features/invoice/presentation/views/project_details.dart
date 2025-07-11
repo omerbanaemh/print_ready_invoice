@@ -51,9 +51,9 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                   width: SizeConfig.width(context) * 0.45,
                   padding: EdgeInsets.all(20),
                   decoration: ShapeDecoration(
-                    color: Theme.of(context).colorScheme.surface,  
+                    // color: Theme.of(context).colorScheme.surface,  
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(width: 1, color: Theme.of(context).dividerColor),
+                      side: BorderSide(width: 1, color: Colors.grey.shade300),
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
