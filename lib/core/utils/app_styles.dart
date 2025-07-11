@@ -19,13 +19,6 @@ abstract class AppStyles {
     );
   }
 
-  static TextStyle styleRegular16(context) {
-    return TextStyle(
-      // color: Colors.black,
-      fontSize: getResponsiveFontSize(context, fontSize: 16),
-      fontWeight: FontWeight.w400,
-    );
-  }
 
   // Medium
   static TextStyle styleMedium16(BuildContext context) {
@@ -36,13 +29,6 @@ abstract class AppStyles {
     );
   }
 
-  static TextStyle styleMedium20(BuildContext context) {
-    return TextStyle(
-      // color: Colors.black,
-      fontSize: getResponsiveFontSize(context, fontSize: 20),
-      fontWeight: FontWeight.w500,
-    );
-  }
 
   // SemiBold
   static TextStyle styleSemiBold14(BuildContext context) {
@@ -94,14 +80,6 @@ abstract class AppStyles {
     );
   }
 
-  // Bold
-  static TextStyle styleBold16(BuildContext context) {
-    return TextStyle(
-      // color: Colors.black,
-      fontSize: getResponsiveFontSize(context, fontSize: 16),
-      fontWeight: FontWeight.w700,
-    );
-  }
 }
 
 // sacleFactor
