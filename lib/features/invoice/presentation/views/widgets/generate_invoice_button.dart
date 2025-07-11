@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
+import 'package:print_ready_invoice/features/invoice/models/product_details_model.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/invoice_view.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
@@ -27,9 +28,16 @@ class GenerateInvoiceButton extends StatelessWidget {
             ),
             onPressed: () {
               if (formKey.currentState!.saveAndValidate()) {
-                // final data = formKey.currentState!.value;
+               final values = formKey.currentState!.value;
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => InvoiceView(),
+                  builder: (context) => InvoiceView(
+                    productDetails: ProductDetailsModel(
+                      name:  values['name'],
+                       type: values['name'],
+                        frameWork: values['name'],
+                         technologies: values['name'],
+                          description: values['name'],
+                          ),),
                 ));
               }
             },

@@ -1,19 +1,19 @@
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:print_ready_invoice/core/utils/adaptive_layout_widget.dart';
 import 'package:print_ready_invoice/core/utils/size_config.dart';
+import 'package:print_ready_invoice/features/invoice/models/product_details_model.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/invoice_cubit.dart';
-import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/invoice_desktop_layout.dart';
-import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/invoice_mobile_layout.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/localization_cubit.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_button.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_invoice_app_bar.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_invoice_body.dart';
 
-class InvoiceView extends StatefulWidget {
-  const InvoiceView({super.key});
+class InvoiceView extends StatelessWidget {
+  InvoiceView({super.key, required this.productDetails});
 
-  @override
-  State<InvoiceView> createState() => _InvoiceViewState();
-}
+  final ProductDetailsModel productDetails;
 
-class _InvoiceViewState extends State<InvoiceView> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
   @override
@@ -25,12 +25,26 @@ class _InvoiceViewState extends State<InvoiceView> {
           : null,
       body: BlocProvider(
         create: (context) => InvoiceCubit()..loadInitial(),
-        child: AdaptiveLayoutWidget(
-          mobileLayout: (context) =>
-              InvoiceMobileLayout(scaffoldKey: scaffoldKey),
-          desktopLayout: (context) =>
-              InvoiceDesktopLayout(scaffoldKey: scaffoldKey),
-        ),
+        child: Center(
+            child: SizedBox( child:  Center(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(minWidth: 500),
+                child: SizedBox(
+                  width: SizeConfig.width(context) * 0.6,
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 20),
+                    CustomInvoiceAppBar( scaffoldKey: scaffoldKey,),
+                    SizedBox(height: 20),
+                    CustomInvoiceBody(productDetails: productDetails,),
+                    // CustomInvoiceBody(),
+                  ],
+                ),
+              ),
+            ),)))
+          ),
       ),
     );
   }
@@ -49,13 +63,82 @@ class CustomDrawer extends StatelessWidget {
           SliverToBoxAdapter(
             child: Container(
               padding: EdgeInsets.all(16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Column(
                 children: [
-                  Text('Menu'),
-                  IconButton(
-                    icon: Icon(Icons.close),
-                    onPressed: () => Navigator.of(context).pop(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Menu'),
+                      IconButton(
+                        icon: Icon(Icons.close),
+                        onPressed: () => Navigator.of(context).pop(),
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(
+                    child: Column(
+                      children: [
+                        CustomButton(
+                          backgroundColor: Colors.white,
+                          foregroundColor: Colors.black,
+                          text: 'EN',
+                          borderRight: false,
+                          onPressed: () {
+                            context.read<LocalizationCubit>().changeLocale(
+                              'en',
+                            );
+                          },
+                        ),
+                        CustomButton(
+                          backgroundColor: Colors.white,
+                          foregroundColor: Colors.black,
+                          text: 'AR',
+                          borderLeft: false,
+                          onPressed: () {
+                            context.read<LocalizationCubit>().changeLocale(
+                              'ar',
+                            );
+                          },
+                        ),
+                        SizedBox(width: 8),
+                        CustomButton(
+                          backgroundColor: Colors.white,
+                          foregroundColor: Colors.black,
+                          icon: Icons.light_mode,
+                          onPressed: () {
+                            AdaptiveTheme.of(
+                              context,
+                            ).toggleThemeMode(useSystem: false);
+                          },
+                        ),
+                        SizedBox(width: 8),
+                        CustomButton(
+                          backgroundColor: Colors.white,
+                          foregroundColor: Colors.black,
+                          text: 'AI Suggest Discount',
+                          icon: Icons.lightbulb_outline,
+                        ),
+                        SizedBox(width: 8),
+                        CustomButton(
+                          backgroundColor: Colors.blue,
+                          foregroundColor: Colors.white,
+                          text: 'Preview Invoice',
+                          icon: Icons.print_outlined,
+                          onPressed: () {
+                            final cubit = context.read<InvoiceCubit>();
+                            final state = cubit.state as InvoiceLoaded;
+                            cubit.printInvoice(
+                              state.productItems,
+                              cubit.subtotal,
+                              cubit.tax,
+                              cubit.total,
+                            );
+                          },
+                        ),
+                        SizedBox(width: 8),
+                      ],
+                    ),
                   ),
                 ],
               ),
