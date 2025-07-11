@@ -5,7 +5,7 @@ import 'package:print_ready_invoice/features/invoice/models/clinet_model.dart';
 import 'package:print_ready_invoice/features/invoice/models/product_details_model.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/clinet_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_rich_text.dart';
-import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/edit_clinet_dialog%20.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/edit_clinet_dialog.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
 class InvoiceInfoSection extends StatelessWidget {

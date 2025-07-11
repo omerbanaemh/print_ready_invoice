@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:print_ready_invoice/features/invoice/models/product_model.dart';
@@ -55,9 +57,9 @@ class InvoiceCubit extends Cubit<InvoiceState> {
   }
 
   void duplicateItem(int index) {
-    print(
-      'Duplicating item at index: $index    ggggg= ${newList[index].prodactName} ',
-    );
+    // print(
+    //   'Duplicating item at index: $index    ggggg= ${newList[index].prodactName} ',
+    // );
     newList.add(
       ProductModel(
         prodactName: newList[index].prodactName,
@@ -73,11 +75,11 @@ class InvoiceCubit extends Cubit<InvoiceState> {
     newList[index].prodactName = product.prodactName;
     newList[index].unitPrice = product.unitPrice.toDouble();
     emit(InvoiceLoaded(newList));
-    newList.forEach(
-      (element) => print(
-        'Updated product: ${element.prodactName}, Price: ${element.unitPrice}, quantity: ${element.quantity}',
-      ),
-    );
+    // newList.forEach(
+    //   (element) => print(
+    //     'Updated product: ${element.prodactName}, Price: ${element.unitPrice}, quantity: ${element.quantity}',
+    //   ),
+    // );
     _updateTotals(newList);
   }
 

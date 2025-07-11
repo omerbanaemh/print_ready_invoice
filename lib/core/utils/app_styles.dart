@@ -64,7 +64,7 @@ abstract class AppStyles {
   }
 
   static TextStyle styleSemiBold24(BuildContext context) {
-    print(getResponsiveFontSize(context, fontSize: 24),);
+    // print(getResponsiveFontSize(context, fontSize: 24),);
     return TextStyle(
       // color:  Colors.black,
       fontSize: getResponsiveFontSize(context, fontSize: 24),
@@ -87,7 +87,7 @@ abstract class AppStyles {
 // (min , max) fontsize
 double getResponsiveFontSize(context, {required double fontSize}) {
   double scaleFactor = getScaleFactor(context);
-  print('scaleFactor: $scaleFactor');
+  // print('scaleFactor: $scaleFactor');
   double responsiveFontSize = fontSize * scaleFactor;
 
   double lowerLimit = fontSize * .8;

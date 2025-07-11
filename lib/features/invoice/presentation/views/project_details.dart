@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/core/utils/size_config.dart';
@@ -9,7 +10,6 @@ import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_type_input.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/technologies_dropdown_chips.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
-import 'package:provider/provider.dart';
 
 class ProjectDetails extends StatefulWidget {
   const ProjectDetails({super.key});
@@ -26,7 +26,7 @@ class _ProjectDetailsState extends State<ProjectDetails> {
   Widget build(BuildContext context) {
     // print('width======== ${SizeConfig.width(context)}');
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
+      // backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,

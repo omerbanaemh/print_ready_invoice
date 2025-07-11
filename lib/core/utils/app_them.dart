@@ -31,7 +31,7 @@ class AppTheme {
         primary: Colors.white,
         secondary: Colors.white,
         surface: Colors.white,
-        background: Colors.white,
+        // background: Colors.white,
         error: Colors.white,
       ),
 
@@ -73,7 +73,7 @@ class AppTheme {
         primary: Colors.grey,
         secondary: Colors.black45,
         surface: Colors.black54,
-        background: Colors.black54,
+        // background: Colors.black54,
         error: Colors.black54,
       ),
 
