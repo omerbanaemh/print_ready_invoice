@@ -5,7 +5,7 @@ abstract class AppStyles {
   // Regular
   static TextStyle styleRegular12(BuildContext context) {
     return TextStyle(
-      color: Colors.black,
+      // color: Colors.black,
       fontSize: getResponsiveFontSize(context, fontSize: 12),
       fontWeight: FontWeight.w400,
     );
@@ -13,7 +13,7 @@ abstract class AppStyles {
 
   static TextStyle styleRegular14(BuildContext context) {
     return TextStyle(
-      color: Colors.black,
+      // color: Colors.black,
       fontSize: getResponsiveFontSize(context, fontSize: 14),
       fontWeight: FontWeight.w400,
     );
@@ -21,7 +21,7 @@ abstract class AppStyles {
 
   static TextStyle styleRegular16(context) {
     return TextStyle(
-      color: Colors.black,
+      // color: Colors.black,
       fontSize: getResponsiveFontSize(context, fontSize: 16),
       fontWeight: FontWeight.w400,
     );
@@ -30,7 +30,7 @@ abstract class AppStyles {
   // Medium
   static TextStyle styleMedium16(BuildContext context) {
     return TextStyle(
-      color: Colors.black,
+      // color: Colors.black,
       fontSize: getResponsiveFontSize(context, fontSize: 16),
       fontWeight: FontWeight.w500,
     );
@@ -38,7 +38,7 @@ abstract class AppStyles {
 
   static TextStyle styleMedium20(BuildContext context) {
     return TextStyle(
-      color: Colors.black,
+      // color: Colors.black,
       fontSize: getResponsiveFontSize(context, fontSize: 20),
       fontWeight: FontWeight.w500,
     );
@@ -47,7 +47,7 @@ abstract class AppStyles {
   // SemiBold
   static TextStyle styleSemiBold14(BuildContext context) {
     return TextStyle(
-      color: Colors.black,
+      // color: Colors.black,
       fontSize: getResponsiveFontSize(context, fontSize: 14),
       fontWeight: FontWeight.w600,
     );
@@ -55,7 +55,7 @@ abstract class AppStyles {
 
   static TextStyle styleSemiBold16(BuildContext context) {
     return TextStyle(
-      color: Colors.black,
+      // color: Colors.black,
       fontSize: getResponsiveFontSize(context, fontSize: 16),
       fontWeight: FontWeight.w600,
     );
@@ -63,7 +63,7 @@ abstract class AppStyles {
 
   static TextStyle styleSemiBold18(BuildContext context) {
     return TextStyle(
-      color: Colors.black,
+      // color: Colors.black,
       fontSize: getResponsiveFontSize(context, fontSize: 18),
       fontWeight: FontWeight.w600,
     );
@@ -71,7 +71,7 @@ abstract class AppStyles {
 
   static TextStyle styleSemiBold20(BuildContext context) {
     return TextStyle(
-      color: Colors.black,
+      // color: Colors.black,
       fontSize: getResponsiveFontSize(context, fontSize: 20),
       fontWeight: FontWeight.w600,
     );
@@ -80,7 +80,7 @@ abstract class AppStyles {
   static TextStyle styleSemiBold24(BuildContext context) {
     print(getResponsiveFontSize(context, fontSize: 24),);
     return TextStyle(
-      color:  Colors.black,
+      // color:  Colors.black,
       fontSize: getResponsiveFontSize(context, fontSize: 24),
       fontWeight: FontWeight.w600,
     );
@@ -88,7 +88,7 @@ abstract class AppStyles {
 
     static TextStyle styleSemiBold26(BuildContext context) {
     return TextStyle(
-      color: const Color(0xFF4192DF),
+      // color: const Color(0xFF4192DF),
       fontSize: getResponsiveFontSize(context, fontSize: 26),
       fontWeight: FontWeight.w600,
     );
@@ -97,7 +97,7 @@ abstract class AppStyles {
   // Bold
   static TextStyle styleBold16(BuildContext context) {
     return TextStyle(
-      color: Colors.black,
+      // color: Colors.black,
       fontSize: getResponsiveFontSize(context, fontSize: 16),
       fontWeight: FontWeight.w700,
     );
