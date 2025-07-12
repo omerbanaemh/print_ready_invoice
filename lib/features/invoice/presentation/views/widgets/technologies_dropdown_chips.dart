@@ -29,8 +29,7 @@ class _TechnologiesDropdownChipsState extends State<TechnologiesDropdownChips> {
         SizedBox(height: 24),
          Text(
           S.of(context).technologies_used,
-          style: AppStyles.styleMedium16(context),
-        ),
+          style: AppStyles.styleMedium16(context).copyWith(color: Colors.black)),
         SizedBox(height: 8),
         FormBuilderField<List<String>>(
           name: 'technologies_used',

@@ -15,13 +15,11 @@ class CustomInvoiceAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(SizeConfig.width(context));
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text('Onyx IX Solutions', style: AppStyles.styleSemiBold26(context)),
-
-        
-
 
         SizeConfig.width(context) < SizeConfig.desktop
             ? IconButton(
@@ -31,66 +29,63 @@ class CustomInvoiceAppBar extends StatelessWidget {
                 icon: const Icon(Icons.menu),
               )
             : Flexible(
-                child: SizedBox(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        CustomButton(
-                          backgroundColor: Colors.white,
-                          foregroundColor: Colors.black,
-                          text: 'EN',
-                          borderRight: false,
-                          onPressed: () {
-                            context.read<LocalizationCubit>().changeLocale('en');
-                          },
-                        ),
-                        CustomButton(
-                          backgroundColor: Colors.white,
-                          foregroundColor: Colors.black,
-                          text: 'AR',
-                          borderLeft: false,
-                          onPressed: () {
-                            context.read<LocalizationCubit>().changeLocale('ar');
-                          },
-                        ),
-                        SizedBox(width: 8),
-                        CustomButton(
-                          backgroundColor: Colors.white,
-                          foregroundColor: Colors.black,
-                          icon: Icons.light_mode,
-                          onPressed: () {
-                            AdaptiveTheme.of(context).toggleThemeMode(useSystem: false);
-                          },
-                        ),
-                        SizedBox(width: 8),
-                        CustomButton(
-                          backgroundColor: Colors.white,
-                          foregroundColor: Colors.black,
-                          text: S.of(context).ai_suggest_discount,
-                          icon: Icons.lightbulb_outline,
-                        ),
-                        SizedBox(width: 8),
-                        CustomButton(
-                          backgroundColor: Colors.blue,
-                          foregroundColor: Colors.white,
-                          text: S.of(context).printReady_invoice,
-                          icon: Icons.print_outlined,
-                          onPressed: () {
-                            final cubit = context.read<InvoiceCubit>();
-                            final state = cubit.state as InvoiceLoaded;
-                            cubit.printInvoice(
-                              state.productItems,
-                              cubit.subtotal,
-                              cubit.tax,
-                              cubit.total,
-                            );
-                          },
-                        ),
-                        SizedBox(width: 8),
-                      ],
+                child: Wrap(
+                  children: [
+                    CustomButton(
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.black,
+                      text: 'EN',
+                      borderRight: false,
+                      onPressed: () {
+                        context.read<LocalizationCubit>().changeLocale('en');
+                      },
                     ),
-                  ),
+                    CustomButton(
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.black,
+                      text: 'AR',
+                      borderLeft: false,
+                      onPressed: () {
+                        context.read<LocalizationCubit>().changeLocale('ar');
+                      },
+                    ),
+                    SizedBox(width: 8),
+                    CustomButton(
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.black,
+                      icon: Icons.light_mode,
+                      onPressed: () {
+                        AdaptiveTheme.of(
+                          context,
+                        ).toggleThemeMode(useSystem: false);
+                      },
+                    ),
+                    SizedBox(width: 8),
+                    CustomButton(
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.black,
+                      text: S.of(context).ai_suggest_discount,
+                      icon: Icons.lightbulb_outline,
+                    ),
+                    SizedBox(width: 8),
+                    CustomButton(
+                      backgroundColor: Colors.blue,
+                      foregroundColor: Colors.white,
+                      text: S.of(context).printReady_invoice,
+                      icon: Icons.print_outlined,
+                      onPressed: () {
+                        final cubit = context.read<InvoiceCubit>();
+                        final state = cubit.state as InvoiceLoaded;
+                        cubit.printInvoice(
+                          state.productItems,
+                          cubit.subtotal,
+                          cubit.tax,
+                          cubit.total,
+                        );
+                      },
+                    ),
+                    SizedBox(width: 8),
+                  ],
                 ),
               ),
       ],

@@ -35,23 +35,20 @@ class CustomButton extends StatelessWidget {
         ),
       ),
       onPressed: onPressed,
-      child: SizedBox(
-        child: Center(
-          child: Row(
-            children: [
-              icon != null ? Icon(icon,) :SizedBox(),
-              SizedBox( width: icon == null || text == null? 0 : 6),
-              Text(
-                text ?? '',
-                style: AppStyles.styleRegular12(
-                  context,
-                ).copyWith(
-                  color: foregroundColor,),
-              ),
-            ],
-          ),
-        ),
+      child: RichText(
+  text: TextSpan(
+    children: [
+      WidgetSpan(
+        child: Icon(icon, size: 16),
       ),
+      TextSpan(
+        text: text,
+        style: AppStyles.styleRegular14(context).copyWith(color: Colors.black),
+      ),
+    ],
+  ),
+)
+     
     );
   }
 }

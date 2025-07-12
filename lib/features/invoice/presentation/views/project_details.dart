@@ -34,9 +34,9 @@ class _ProjectDetailsState extends State<ProjectDetails> {
             SizedBox(height: 40),
             Text(
               S.of(context).printReady_invoice,
-              style: AppStyles.styleSemiBold26(context).copyWith(
-                color: Colors.blue
-              ),
+              style: AppStyles.styleSemiBold26(
+                context,
+              ).copyWith(color: Colors.blue),
             ),
             SizedBox(height: 40),
             Center(
@@ -57,16 +57,15 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                     children: [
                       Text(
                         S.of(context).project_details,
-                        style: AppStyles.styleSemiBold20(context).copyWith(
-                      color: Colors.black
-                    ),
-                        
+                        style: AppStyles.styleSemiBold20(
+                          context,
+                        ).copyWith(color: Colors.black),
                       ),
                       Text(
                         S.of(context).printReady_invoice_description,
-                        style: AppStyles.styleRegular12(context).copyWith(
-                      color: Colors.black
-                    ),
+                        style: AppStyles.styleRegular12(
+                          context,
+                        ).copyWith(color: Colors.black),
                       ),
 
                       FormBuilder(
@@ -82,8 +81,7 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                             ProjectFieldInput(
                               label: S.of(context).project_description,
                               name: 'description',
-                              hintText:
-                                  S.of(context).project_description_hint,
+                              hintText: S.of(context).project_description_hint,
                               maxLines: 3,
                             ),
                             PrimaryFrameworkInput(frameworks: frameworks),

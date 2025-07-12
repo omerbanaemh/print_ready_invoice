@@ -14,7 +14,7 @@ class ProjectTypeInput extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 24),
-        Text(S.of(context).project_type, style: AppStyles.styleMedium16(context)),
+        Text(S.of(context).project_type, style: AppStyles.styleMedium16(context).copyWith(color: Colors.black)),
         SizedBox(height: 8),
         FormBuilderDropdown<String>(
           name: 'project_type',

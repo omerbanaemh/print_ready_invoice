@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:form_builder_extra_fields/form_builder_extra_fields.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/custom_input_decoration.dart';
@@ -17,16 +17,26 @@ class PrimaryFrameworkInput extends StatelessWidget {
         SizedBox(height: 24),
         Text(
           S.of(context).project_framework,
-          style: AppStyles.styleMedium16(context),
+          style: AppStyles.styleMedium16(context).copyWith(color: Colors.black),
         ),
         SizedBox(height: 8),
-        FormBuilderDropdown<String>(
+
+        FormBuilderSearchableDropdown<String>(
           name: 'primary_framework',
-          decoration: customInputDecoration(hintText: S.of(context).project_framework_hint,context: context),
-          items: frameworks
-              .map((item) => DropdownMenuItem(value: item, child: Text(item)))
-              .toList(),
-          validator: FormBuilderValidators.required(),
+          decoration: customInputDecoration(
+            hintText: S.of(context).project_framework_hint,
+            context: context,
+          ),
+          items: frameworks,
+          popupProps: PopupProps.menu(
+            showSearchBox: true,
+            searchFieldProps: TextFieldProps(
+              decoration: InputDecoration(hintText: " S.of(context).search"),
+            ),
+          ),
+          validator: FormBuilderValidators.required(
+            // errorText:" S.of(context).please_select_framework",
+          ),
         ),
       ],
     );

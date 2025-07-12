@@ -59,8 +59,8 @@ class MyApp extends StatelessWidget {
               ],
               supportedLocales: S.delegate.supportedLocales,
 
-              // home: InvoiceView(productDetails: ProductDetailsModel(name: 'name', type: 'type', frameWork: 'frameWork', technologies:[ 'technologies'], description: 'description'),),
-              home: ProjectDetails(),
+              home: InvoiceView(productDetails: ProductDetailsModel(name: 'name', type: 'type', frameWork: 'frameWork', technologies:[ 'technologies'], description: 'description'),),
+              // home: ProjectDetails(),
             );
           },
         ),
