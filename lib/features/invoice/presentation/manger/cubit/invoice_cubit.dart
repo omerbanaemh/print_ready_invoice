@@ -37,10 +37,10 @@ class InvoiceCubit extends Cubit<InvoiceState> {
     ),
   ];
 
-  void loadInitial() {
-    emit(InvoiceLoaded([]));
-    _updateTotals([]);
-  }
+  // void loadInitial() {
+  //   emit(InvoiceLoaded([]));
+  //   _updateTotals([]);
+  // }
 
   void addItem() {
     newList.add(

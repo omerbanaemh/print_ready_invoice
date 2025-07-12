@@ -21,7 +21,7 @@ InputDecoration customInputDecoration({String? hintText, String? errorText,requi
     ),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(12),
-      borderSide: const BorderSide(color: Color(0xFFDCDCDC)),
+      borderSide: const BorderSide(color: Colors.blue),
     ),
   );
 }

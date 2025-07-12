@@ -29,7 +29,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "bill_to": MessageLookupByLibrary.simpleMessage("Bill To:"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "client_details": MessageLookupByLibrary.simpleMessage("Client Details"),
     "description": MessageLookupByLibrary.simpleMessage("Description:"),
+    "edit_client": MessageLookupByLibrary.simpleMessage("Edit Client"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "framework": MessageLookupByLibrary.simpleMessage("FrameWork:"),
     "generate_invoice": MessageLookupByLibrary.simpleMessage(
@@ -72,6 +74,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
     "save": MessageLookupByLibrary.simpleMessage("Save"),
+    "save_changes": MessageLookupByLibrary.simpleMessage("Save changes"),
     "select_one_technology": MessageLookupByLibrary.simpleMessage(
       "Please select at least one technology",
     ),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:print_ready_invoice/core/utils/app_them.dart';
+import 'package:print_ready_invoice/core/utils/ob_Server/bloc_observer.dart';
 import 'package:print_ready_invoice/features/invoice/models/product_details_model.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/clinet_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/invoice_cubit.dart';
@@ -17,6 +18,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
 );
+Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 
@@ -35,7 +37,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => ClinetCubit()),
         BlocProvider(create: (context) => LocalizationCubit(),),
         BlocProvider(
-          create: (context) => InvoiceCubit()..loadInitial(),
+          create: (context) => InvoiceCubit(),
         ),
       ],
         

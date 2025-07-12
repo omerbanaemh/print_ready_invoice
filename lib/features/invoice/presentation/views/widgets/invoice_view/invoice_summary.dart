@@ -41,12 +41,12 @@ final InvoiceCubit cubit;
                   ],
                 ),
                 SizedBox(height: 10),
-                Divider(color: Colors.black12, thickness: 1),
+                Divider(),
                 Container(
                   padding: EdgeInsets.all(8),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(4)),
-                     color: Colors.blue[50],
+                     color: Theme.of(context).colorScheme.secondary,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

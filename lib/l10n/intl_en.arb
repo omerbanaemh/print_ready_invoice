@@ -22,6 +22,7 @@
   "email": "Email",
     "cancel": "Cancel",
   "save": "Save",
+    "save_changes": "Save changes",
     "bill_to": "Bill To:",
   "name_": "Name:",
   "type": "Type:",
@@ -37,7 +38,9 @@
   "item": "Item",
     "select_project_type": "Select a Project Type",
   "select_one_technology": "Please select at least one technology",
-   "menu": "Menu"
+   "menu": "Menu",
+   "edit_client" : "Edit Client",
+   "client_details" :"Client Details"
 
 
 }

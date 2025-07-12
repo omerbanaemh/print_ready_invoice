@@ -13,7 +13,7 @@ class CustomInvoiceBodyHeader extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.blue[50],
+        color: Theme.of(context).colorScheme.secondary,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(12),
           topRight: Radius.circular(12),
@@ -30,29 +30,18 @@ class CustomInvoiceBodyHeader extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Flexible(
+          Expanded(
+            flex: 3,
             child: Row(
               children: [
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 18,
-                    vertical: 8,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.black12,
-                  ),
-                  child: Center(
-                    child: Text(
-                      '150 * 50',
-                      style: AppStyles.styleSemiBold18(
-                        context,
-                      ).copyWith(color: Colors.black38),
-                    ),
-                  ),
+                Flexible(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: 100,),
+                    child: Image.asset('assets/images/onix_ix.png',fit: BoxFit.fill,)),
                 ),
                 SizedBox(width: 10),
-                Flexible(
+                Expanded(
+                  flex: 3,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -66,7 +55,7 @@ class CustomInvoiceBodyHeader extends StatelessWidget {
                         '123 Innovation Drive, Tech City, 12345',
                         style: AppStyles.styleMedium16(
                           context,
-                        ).copyWith(color: Colors.black54),
+                        ),
                       ),
                     ],
                   ),
@@ -74,21 +63,23 @@ class CustomInvoiceBodyHeader extends StatelessWidget {
               ],
             ),
           ),
-          Column(
-            children: [
-              Text(
-                S.of(context).invoice,
-                style: AppStyles.styleSemiBold24(context),
-              ),
-              Text(
-                'INV-2024-001',
-                style: AppStyles.styleMedium16(context),
-              ),
-              Text(
-                'Date: 7-7-2025',
-                style: AppStyles.styleMedium16(context),
-              ),
-            ],
+          Expanded(
+            child: Column(
+              children: [
+                Text(
+                  S.of(context).invoice,
+                  style: AppStyles.styleSemiBold24(context),
+                ),
+                Text(
+                  'INV-2024-001',
+                  style: AppStyles.styleMedium16(context),
+                ),
+                Text(
+                  'Date: 7-7-2025',
+                  style: AppStyles.styleMedium16(context),
+                ),
+              ],
+            ),
           ),
         ],
       ),

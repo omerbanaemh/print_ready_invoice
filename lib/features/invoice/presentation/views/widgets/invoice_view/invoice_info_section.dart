@@ -23,7 +23,7 @@ final ProductDetailsModel productDetails;
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(S.of(context).bill_to, style: AppStyles.styleSemiBold16(context)),
+                  Text(S.of(context).bill_to, style: AppStyles.styleSemiBold16(context).copyWith(color: Colors.black)),
                   SizedBox(height: 10),
                   TextButton(
                     onPressed: () {
@@ -68,7 +68,7 @@ final ProductDetailsModel productDetails;
             children: [
               Text(
                 S.of(context).project_details,
-                style: AppStyles.styleSemiBold16(context),
+                style: AppStyles.styleSemiBold16(context).copyWith(color: Colors.black),
               ),
               SizedBox(height: 10),
               CustomRichText(late: S.of(context).name_, text: productDetails.name),

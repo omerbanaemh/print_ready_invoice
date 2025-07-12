@@ -24,29 +24,26 @@ class InvoiceView extends StatelessWidget {
       drawer: MediaQuery.sizeOf(context).width < SizeConfig.desktop
           ? const CustomDrawer()
           : null,
-      body: BlocProvider(
-        create: (context) => InvoiceCubit()..loadInitial(),
-        child: Center(
-            child: SizedBox( child:  Center(
-              child: ConstrainedBox(
-                constraints: BoxConstraints(minWidth: 500),
-                child: SizedBox(
-                  width: SizeConfig.width(context) * 0.6,
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(height: 20),
-                    CustomInvoiceAppBar( scaffoldKey: scaffoldKey,),
-                    SizedBox(height: 20),
-                    CustomInvoiceBody(productDetails: productDetails,),
-                    // CustomInvoiceBody(),
-                  ],
-                ),
+      body: Center(
+          child: SizedBox( child:  Center(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minWidth: 500),
+              child: SizedBox(
+                width: SizeConfig.width(context) * 0.6,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: 20),
+                  CustomInvoiceAppBar( scaffoldKey: scaffoldKey,),
+                  SizedBox(height: 20),
+                  CustomInvoiceBody(productDetails: productDetails,),
+                  // CustomInvoiceBody(),
+                ],
               ),
-            ),)))
-          ),
-      ),
+            ),
+          ),)))
+        ),
     );
   }
 }

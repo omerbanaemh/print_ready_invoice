@@ -31,17 +31,12 @@ class _ProjectDetailsState extends State<ProjectDetails> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            IconButton(
-              icon: const Icon(Icons.language),
-              onPressed: () => context.read<LocalizationCubit>().changeLocale(
-                context.read<LocalizationCubit>().locale == 'en' ? 'ar' : 'en',
-              ),
-              color: Theme.of(context).iconTheme.color, 
-            ),
             SizedBox(height: 40),
             Text(
               S.of(context).printReady_invoice,
-              style: AppStyles.styleSemiBold26(context),
+              style: AppStyles.styleSemiBold26(context).copyWith(
+                color: Colors.blue
+              ),
             ),
             SizedBox(height: 40),
             Center(
@@ -51,7 +46,7 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                   width: SizeConfig.width(context) * 0.45,
                   padding: EdgeInsets.all(20),
                   decoration: ShapeDecoration(
-                    // color: Theme.of(context).colorScheme.surface,  
+                    color: Color(0xFFFDFDFD),
                     shape: RoundedRectangleBorder(
                       side: BorderSide(width: 1, color: Colors.grey.shade300),
                       borderRadius: BorderRadius.circular(12),
@@ -63,14 +58,14 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                       Text(
                         S.of(context).project_details,
                         style: AppStyles.styleSemiBold20(context).copyWith(
-                      color: Theme.of(context).textTheme.headlineLarge?.color,
+                      color: Colors.black
                     ),
                         
                       ),
                       Text(
                         S.of(context).printReady_invoice_description,
                         style: AppStyles.styleRegular12(context).copyWith(
-                      color: Theme.of(context).textTheme.bodyMedium?.color,
+                      color: Colors.black
                     ),
                       ),
 

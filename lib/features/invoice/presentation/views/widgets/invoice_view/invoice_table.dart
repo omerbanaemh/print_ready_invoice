@@ -20,6 +20,8 @@ class InvoiceTable extends StatelessWidget {
   Widget build(BuildContext context) {
     return FormBuilder(
       child: DataTable(
+        dataRowMaxHeight: 55,
+        headingRowColor: WidgetStateProperty.all(Color(0xFFEDEFF2)),
         columnSpacing: 0,
         columns: [
           DataColumn(
@@ -41,7 +43,7 @@ class InvoiceTable extends StatelessWidget {
           DataColumn(
             label: FittedBox(
               child: Text(
-              S.of(context).price,
+                S.of(context).price,
                 style: AppStyles.styleRegular12(
                   context,
                 ).copyWith(color: Colors.black54),
@@ -92,25 +94,37 @@ class InvoiceTable extends StatelessWidget {
                     name: 'quantity_$index',
                     initialValue: item.quantity.toString(),
                     onChanged: (value) {
-                      final quantity = int.tryParse(value ?? '') ?? 0;
-                      cubit.updateQuantity(index, quantity);
+                      if (value != null && int.tryParse(value) != null) {
+                        cubit.updateQuantity(index, int.parse(value));
+                      }
                     },
                     keyboardType: TextInputType.number,
-                    decoration:  InputDecoration(
-                      fillColor: Color.fromARGB(255, 58, 98, 139),
+                    decoration: InputDecoration(
+                      // fillColor: Color.fromARGB(255, 58, 98, 139),
+                      // filled: true,
                       border: OutlineInputBorder(borderSide: BorderSide.none),
                     ),
-    
+
                     validator: FormBuilderValidators.compose([
                       FormBuilderValidators.required(),
                       FormBuilderValidators.numeric(),
                     ]),
                   ),
                 ),
-                DataCell(Text("\$${(item.unitPrice).toStringAsFixed(2)}")),
+                DataCell(
+                  Text(
+                    "\$${(item.unitPrice).toStringAsFixed(2)}",
+                    style: AppStyles.styleRegular14(
+                      context,
+                    ).copyWith(color: Colors.black),
+                  ),
+                ),
                 DataCell(
                   Text(
                     '\$${(item.quantity * item.unitPrice).toStringAsFixed(2)}',
+                    style: AppStyles.styleRegular14(
+                      context,
+                    ).copyWith(color: Colors.black),
                   ),
                 ),
                 DataCell(
@@ -118,19 +132,26 @@ class InvoiceTable extends StatelessWidget {
                     child: Row(
                       children: [
                         IconButton(
+                          padding: EdgeInsets.zero,
+                          visualDensity: VisualDensity.compact,
+                          constraints: BoxConstraints(),
                           onPressed: () {
                             cubit.removeItem(index);
                           },
                           icon: const Icon(
                             Icons.delete_outline,
                             color: Colors.red,
+                            size: 20,
                           ),
                         ),
                         IconButton(
+                          padding: EdgeInsets.zero,
+                          visualDensity: VisualDensity.compact,
+                          constraints: BoxConstraints(),
                           onPressed: () {
                             cubit.duplicateItem(index);
                           },
-                          icon: const Icon(Icons.copy),
+                          icon: const Icon(Icons.copy, size: 16),
                         ),
                       ],
                     ),

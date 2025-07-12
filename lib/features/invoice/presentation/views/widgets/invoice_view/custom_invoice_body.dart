@@ -44,15 +44,12 @@ final ProductDetailsModel productDetails;
                 InvoiceInfoSection(productDetails: productDetails,),
                 BlocBuilder<InvoiceCubit, InvoiceState>(
                   builder: (context, state) {
-                    if (state is InvoiceInitial) {
-                      context.read<InvoiceCubit>().loadInitial();
-                      return CircularProgressIndicator();
-                    }
-                    if (state is InvoiceLoaded) {
-                      final List<ProductModel> productItems = state.productItems;
+           
+                      // final List<ProductModel> productItems = state.productItems;
                       final cubit = context.read<InvoiceCubit>();
                       return Column(
                         children: [
+                          const SizedBox(height: 12),
                           AdaptiveLayoutWidget(
                             mobileLayout: (context) => SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
@@ -61,7 +58,7 @@ final ProductDetailsModel productDetails;
                                 SizedBox(
                                   // width: double.infinity,
                                   child: InvoiceTable(
-                                    productItems: productItems,
+                                    productItems: cubit.newList,
                                     cubit: cubit,
                                   ),
                                 ),
@@ -71,7 +68,7 @@ final ProductDetailsModel productDetails;
                             desktopLayout: (context) => SizedBox(
                               width: double.infinity,
                               child: InvoiceTable(
-                                productItems: productItems,
+                                productItems: cubit.newList,
                                 cubit: cubit,
                               ),
                             ),),
@@ -91,13 +88,12 @@ final ProductDetailsModel productDetails;
                             ],
                           ),
                           SizedBox(height: 25),
-                          Divider(color: Colors.black12, thickness: 1),
+                          Divider(),
                           SizedBox(height: 25),
                           InvoiceSummary(cubit: cubit,),
                         ],
                       );
-                    }
-                    return SizedBox.shrink();
+          
                   },
                 ),
               ],

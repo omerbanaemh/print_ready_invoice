@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/core/utils/size_config.dart';
 import 'package:print_ready_invoice/features/invoice/models/clinet_model.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/clinet_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/custom_input_decoration.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_field_input.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
 class EditUserDialog extends StatelessWidget {
@@ -17,38 +19,36 @@ class EditUserDialog extends StatelessWidget {
     final GlobalKey<FormBuilderState> formKey = GlobalKey<FormBuilderState>();
 
     return AlertDialog(
-      title: const Text('تعديل البيانات'),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      elevation: 5,
       content: ConstrainedBox(
         constraints: BoxConstraints(minWidth: SizeConfig.width(context) * 0.3),
         child: FormBuilder(
           key: formKey,
           child: SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               children: [
-                FormBuilderTextField(
-                  initialValue: clinet.name,
+                  Text(S.of(context).edit_client, style:  AppStyles.styleSemiBold18(context),),
+                  Text(S.of(context).client_details),
+                ProjectFieldInput(
+                  label: S.of(context).name,
                   name: 'name',
-                  decoration: customInputDecoration(
-                    hintText: S.of(context).name,
-                    context: context,
-                  ),
+                  initialValue: clinet.name,
+                  hintText: S.of(context).name
                 ),
-                FormBuilderTextField(
+                ProjectFieldInput(
+                  label: S.of(context).address,
+                  name: 'Address',
                   initialValue: clinet.address,
-                  name: S.of(context).address,
-                  decoration: customInputDecoration(
-                    hintText: 'Address',
-                    context: context,
-                  ),
+                  hintText: S.of(context).address,
                 ),
-                FormBuilderTextField(
+                ProjectFieldInput(
+                  label: S.of(context).email,
+                  name: 'email',
                   initialValue: clinet.email,
-                  name: S.of(context).email,
-                  decoration: customInputDecoration(
-                    hintText: 'Email',
-                    context: context,
-                  ),
+                  hintText: S.of(context).email,
                 ),
               ],
             ),
@@ -56,11 +56,17 @@ class EditUserDialog extends StatelessWidget {
         ),
       ),
       actions: [
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           child: Text(S.of(context).cancel),
         ),
         ElevatedButton(
+           style: ElevatedButton.styleFrom(
+          backgroundColor:  Colors.blue,
+          foregroundColor: Colors.white,
+        ),
           onPressed: () {
             if (formKey.currentState?.saveAndValidate() ?? false) {
               final values = formKey.currentState!.value;
@@ -74,7 +80,7 @@ class EditUserDialog extends StatelessWidget {
               Navigator.of(context).pop();
             }
           },
-          child: Text(S.of(context).save),
+          child: Text(S.of(context).save_changes),
         ),
       ],
     );

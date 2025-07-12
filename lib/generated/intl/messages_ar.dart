@@ -29,7 +29,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "bill_to": MessageLookupByLibrary.simpleMessage("فاتورة إلى:"),
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+    "client_details": MessageLookupByLibrary.simpleMessage("تفاصيل العميل"),
     "description": MessageLookupByLibrary.simpleMessage("الوصف:"),
+    "edit_client": MessageLookupByLibrary.simpleMessage("تعديل العميل"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "framework": MessageLookupByLibrary.simpleMessage("الإطار:"),
     "generate_invoice": MessageLookupByLibrary.simpleMessage("إنشاء فاتورة"),
@@ -68,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
     "save": MessageLookupByLibrary.simpleMessage("حفظ"),
+    "save_changes": MessageLookupByLibrary.simpleMessage("حفظ التعديلات"),
     "select_one_technology": MessageLookupByLibrary.simpleMessage(
       "يرجى اختيار تقنية واحدة على الأقل",
     ),

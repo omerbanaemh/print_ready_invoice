@@ -249,6 +249,16 @@ class S {
     return Intl.message('Save', name: 'save', desc: '', args: []);
   }
 
+  /// `Save changes`
+  String get save_changes {
+    return Intl.message(
+      'Save changes',
+      name: 'save_changes',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Bill To:`
   String get bill_to {
     return Intl.message('Bill To:', name: 'bill_to', desc: '', args: []);
@@ -347,6 +357,21 @@ class S {
   /// `Menu`
   String get menu {
     return Intl.message('Menu', name: 'menu', desc: '', args: []);
+  }
+
+  /// `Edit Client`
+  String get edit_client {
+    return Intl.message('Edit Client', name: 'edit_client', desc: '', args: []);
+  }
+
+  /// `Client Details`
+  String get client_details {
+    return Intl.message(
+      'Client Details',
+      name: 'client_details',
+      desc: '',
+      args: [],
+    );
   }
 }
 
