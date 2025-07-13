@@ -53,7 +53,7 @@ final ProductDetailsModel productDetails;
                             child: Row(
                               children: [
                                 SizedBox(
-                                  width: 450,
+                                  width: 550,
                                   child: InvoiceTable(
                                     cubit: cubit,
                                   ),

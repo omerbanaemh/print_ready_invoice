@@ -39,7 +39,7 @@ class EditUserDialog extends StatelessWidget {
                 ),
                 ProjectFieldInput(
                   label: S.of(context).address,
-                  name: 'Address',
+                  name: 'address',
                   initialValue: clinet.address,
                   hintText: S.of(context).address,
                 ),
