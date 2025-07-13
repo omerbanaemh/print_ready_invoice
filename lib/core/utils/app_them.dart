@@ -5,7 +5,7 @@ class AppTheme {
   static ThemeData lightTheme(BuildContext context) {
     return ThemeData(
       scaffoldBackgroundColor: const Color(0xFFECEEF1),
-      useMaterial3: true,
+      useMaterial3: false,
 
 
         colorScheme: const ColorScheme.light(
@@ -23,6 +23,14 @@ class AppTheme {
       ),
       inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+      ),
+            textTheme: const TextTheme(
+        titleLarge: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+          color: Color.fromARGB(255, 1, 1, 1),
+        ),
+        bodyMedium: TextStyle(fontSize: 14, color: Color.fromARGB(255, 0, 0, 0)),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -42,7 +50,7 @@ class AppTheme {
   static ThemeData darkTheme(BuildContext context) {
     return ThemeData(
       scaffoldBackgroundColor: AppClores.grey3,
-      useMaterial3: true,
+      useMaterial3: false,
 
 
       colorScheme: const ColorScheme.light(
@@ -64,14 +72,14 @@ class AppTheme {
         hintStyle: TextStyle(color: Colors.grey[400]),
       ),
 
-      // textTheme: const TextTheme(
-      //   titleLarge: TextStyle(
-      //     fontSize: 18,
-      //     fontWeight: FontWeight.bold,
-      //     color: Colors.white,
-      //   ),
-      //   bodyMedium: TextStyle(fontSize: 14, color: Colors.white70),
-      // ),
+      textTheme: const TextTheme(
+        titleLarge: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+        bodyMedium: TextStyle(fontSize: 14, color: Color.fromARGB(255, 255, 255, 255)),
+      ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color.fromARGB(255, 242, 241, 241),

@@ -5,11 +5,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:print_ready_invoice/core/utils/app_them.dart';
 import 'package:print_ready_invoice/core/utils/ob_Server/bloc_observer.dart';
-import 'package:print_ready_invoice/features/invoice/models/product_details_model.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/clinet_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/invoice_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/localization_cubit.dart';
-import 'package:print_ready_invoice/features/invoice/presentation/views/invoice_view.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/views/project_details.dart';
 import 'package:print_ready_invoice/firebase_options.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
@@ -56,16 +55,16 @@ class MyApp extends StatelessWidget {
                 ],
                 supportedLocales: S.delegate.supportedLocales,
 
-                home: InvoiceView(
-                  productDetails: ProductDetailsModel(
-                    name: 'name',
-                    type: 'type',
-                    frameWork: 'frameWork',
-                    technologies: ['technologies'],
-                    description: 'description',
-                  ),
-                ),
-                // home: ProjectDetails(),
+                // home: InvoiceView(
+                //   productDetails: ProductDetailsModel(
+                //     name: 'name',
+                //     type: 'type',
+                //     frameWork: 'frameWork',
+                //     technologies: ['technologies'],
+                //     description: 'description',
+                //   ),
+                // ),
+                home: const ProjectDetails(),
               );
             },
           );
