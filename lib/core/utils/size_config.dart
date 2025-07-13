@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SizeConfig {
-  static const double desktop = 1200;
-  static const double tablet = 800;
+  static const double desktop = 550;
+  // static const double tablet = 800;
 
   static  double  width(BuildContext context){
     return MediaQuery.sizeOf(context).width;
@@ -12,9 +12,4 @@ class SizeConfig {
     return MediaQuery.sizeOf(context).height;
   }
 
-  // static init(BuildContext context) {
-  //   height = MediaQuery.sizeOf(context).height;
-  //   width = MediaQuery.sizeOf(context).width;
-  //   print('width =  $width');
-  // }
 }
