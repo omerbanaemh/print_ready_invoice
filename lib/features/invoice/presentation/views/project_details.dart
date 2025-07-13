@@ -24,9 +24,7 @@ class _ProjectDetailsState extends State<ProjectDetails> {
 
   @override
   Widget build(BuildContext context) {
-    // print('width======== ${SizeConfig.width(context)}');
     return Scaffold(
-      // backgroundColor: Theme.of(context).colorScheme.background,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -76,6 +74,7 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                               label: S.of(context).project_name,
                               name: 'name',
                               hintText: S.of(context).project_name_hint,
+                              required: true,
                             ),
                             ProjectTypeInput(projectTypes: projectTypes),
                             ProjectFieldInput(
@@ -95,6 +94,7 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                 ),
               ),
             ),
+            SizedBox(height: 40),
           ],
         ),
       ),

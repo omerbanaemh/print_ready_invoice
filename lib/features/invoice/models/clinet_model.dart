@@ -1,5 +1,5 @@
 class ClinetModel {
-  final String? name;
+  late final String? name;
   final String? address;
   final String? email;
 

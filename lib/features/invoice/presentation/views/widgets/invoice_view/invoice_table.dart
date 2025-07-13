@@ -9,11 +9,9 @@ import 'package:print_ready_invoice/generated/l10n.dart';
 class InvoiceTable extends StatelessWidget {
   const InvoiceTable({
     super.key,
-    required this.productItems,
     required this.cubit,
   });
 
-  final List<ProductModel> productItems;
   final InvoiceCubit cubit;
 
   @override
@@ -61,23 +59,30 @@ class InvoiceTable extends StatelessWidget {
           DataColumn(label: Text('')),
         ],
         rows: [
-          ...productItems.asMap().entries.map((entry) {
+          ...cubit.newList.asMap().entries.map((entry) {
             final int index = entry.key;
             final ProductModel item = entry.value;
+            print('000000000000000000000000000000000000000000');
+                 print(
+        'Product: ${item.prodactName}, Quantity: ${item.quantity}, UnitPrice: ${item.unitPrice}',
+      );
+       print('11111111111111111111111111111111111111111');
             return DataRow(
               cells: [
                 DataCell(
-                  FormBuilderDropdown<ProductModel>(
-                    name: 'project_type',
+                  FormBuilderDropdown<String>(
+                    initialValue: item.prodactName,
+                    name: 'project_type_$index',
                     decoration: InputDecoration(
+                      hintText: 'Select Product...',
                       fillColor: Color(0xFFEEF0F2),
                       border: OutlineInputBorder(borderSide: BorderSide.none),
                     ),
-                    items: cubit.products
+                    items: cubit.pro
                         .map(
                           (item) => DropdownMenuItem(
                             value: item,
-                            child: Text(item.prodactName),
+                            child: Text(item),
                           ),
                         )
                         .toList(),
@@ -86,7 +91,6 @@ class InvoiceTable extends StatelessWidget {
                         cubit.updateProduct(index, product);
                       }
                     },
-                    validator: FormBuilderValidators.required(),
                   ),
                 ),
                 DataCell(
@@ -100,15 +104,8 @@ class InvoiceTable extends StatelessWidget {
                     },
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      // fillColor: Color.fromARGB(255, 58, 98, 139),
-                      // filled: true,
                       border: OutlineInputBorder(borderSide: BorderSide.none),
                     ),
-
-                    validator: FormBuilderValidators.compose([
-                      FormBuilderValidators.required(),
-                      FormBuilderValidators.numeric(),
-                    ]),
                   ),
                 ),
                 DataCell(

@@ -3,10 +3,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:print_ready_invoice/features/invoice/models/product_model.dart';
-import 'package:pdf/pdf.dart';
-import 'package:pdf/widgets.dart' as pw;
-import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/pdf_widgets/pdf_widgets.dart';
-import 'package:printing/printing.dart';
 
 part 'invoice_state.dart';
 
@@ -14,52 +10,65 @@ class InvoiceCubit extends Cubit<InvoiceState> {
   InvoiceCubit() : super(InvoiceInitial());
   final List<ProductModel> newList = [];
   final List<ProductModel> products = [
-    ProductModel(prodactName: 'Select Product...', quantity: 0, unitPrice: 0),
     ProductModel(
       prodactName: 'UI/UX Design Package',
-      quantity: 0,
+      quantity: 1,
       unitPrice: 58,
     ),
     ProductModel(
       prodactName: 'Cloud Hosting (Annual)',
-      quantity: 0,
+      quantity: 1,
       unitPrice: 94,
     ),
     ProductModel(
       prodactName: 'Support & Maintenance',
-      quantity: 0,
+      quantity: 1,
       unitPrice: 55,
     ),
     ProductModel(
       prodactName: 'Custom Plugin Development',
-      quantity: 0,
+      quantity: 1,
       unitPrice: 67,
     ),
   ];
-
-  // void loadInitial() {
-  //   emit(InvoiceLoaded([]));
-  //   _updateTotals([]);
-  // }
+  final List<String> pro = [
+    'UI/UX Design Package',
+    'Cloud Hosting (Annual)',
+    'Support & Maintenance',
+    'Custom Plugin Development',
+  ];
 
   void addItem() {
     newList.add(
-      ProductModel(prodactName: 'Select Product...', quantity: 1, unitPrice: 0),
+      ProductModel(
+        prodactName: '',
+        quantity: 1,
+        unitPrice: 0,
+      ),
     );
-    emit(InvoiceLoaded(newList));
+    emit(InvoiceLoaded());
     _updateTotals(newList);
+    print('Current newList contents:');
+    for (var item in newList) {
+      print(
+        'Product: ${item.prodactName}, Quantity: ${item.quantity}, UnitPrice: ${item.unitPrice}',
+      );
+    }
   }
 
   void removeItem(int index) {
     newList.removeAt(index);
-    emit(InvoiceLoaded(newList));
+    emit(InvoiceLoaded());
     _updateTotals(newList);
+    print('Current newList contents:');
+    for (var item in newList) {
+      print(
+        'Product: ${item.prodactName}, Quantity: ${item.quantity}, UnitPrice: ${item.unitPrice}',
+      );
+    }
   }
 
   void duplicateItem(int index) {
-    // print(
-    //   'Duplicating item at index: $index    ggggg= ${newList[index].prodactName} ',
-    // );
     newList.add(
       ProductModel(
         prodactName: newList[index].prodactName,
@@ -67,26 +76,47 @@ class InvoiceCubit extends Cubit<InvoiceState> {
         unitPrice: newList[index].unitPrice,
       ),
     );
-    emit(InvoiceLoaded(newList));
+    emit(InvoiceLoaded());
     _updateTotals(newList);
+    print('=====================================');
+    for (var item in newList) {
+      print(
+        'Product: ${item.prodactName}, Quantity: ${item.quantity}, UnitPrice: ${item.unitPrice}',
+      );
+    }
   }
 
-  void updateProduct(int index, ProductModel product) {
-    newList[index].prodactName = product.prodactName;
-    newList[index].unitPrice = product.unitPrice.toDouble();
-    emit(InvoiceLoaded(newList));
-    // newList.forEach(
-    //   (element) => print(
-    //     'Updated product: ${element.prodactName}, Price: ${element.unitPrice}, quantity: ${element.quantity}',
-    //   ),
-    // );
+  // void updateProduct(int index, String product) {
+  //   newList[index].prodactName = product;
+  //   emit(InvoiceLoaded());
+  //   _updateTotals(newList);
+  // }
+
+  void updateProduct(int index, String productName) {
+    final matchedProduct = products.firstWhere(
+      (p) => p.prodactName == productName,
+      orElse: () => ProductModel(
+        prodactName: 'Select Product...',
+        quantity: 0,
+        unitPrice: 0,
+      ),
+    );
+
+    newList[index] = matchedProduct; 
+    emit(InvoiceLoaded());
     _updateTotals(newList);
   }
 
   void updateQuantity(int index, int quantity) {
     newList[index].quantity = quantity;
-    emit(InvoiceLoaded(newList));
+    emit(InvoiceLoaded());
     _updateTotals(newList);
+    print('Current newList contents:');
+    for (var item in newList) {
+      print(
+        'Product: ${item.prodactName}, Quantity: ${item.quantity}, UnitPrice: ${item.unitPrice}',
+      );
+    }
   }
 
   double subtotal = 0;
@@ -100,35 +130,5 @@ class InvoiceCubit extends Cubit<InvoiceState> {
     );
     tax = subtotal * 0.08;
     total = subtotal + tax;
-  }
-
-  Future<void> printInvoice(
-    List<ProductModel> invoiceItems,
-    double subtotal,
-    double tax,
-    double total,
-  ) async {
-    final pdf = pw.Document();
-
-    pdf.addPage(
-      pw.Page(
-        build: (context) {
-          return buildInvoiceBody(
-            header: buildInvoiceHeader(),
-            infoSection: buildInvoiceInfoSection(),
-            table: buildInvoiceTable(invoiceItems),
-            summary: buildInvoiceSummary(
-              subtotal: subtotal,
-              tax: tax,
-              total: total,
-            ),
-          );
-        },
-      ),
-    );
-
-    await Printing.layoutPdf(
-      onLayout: (PdfPageFormat format) async => pdf.save(),
-    );
   }
 }

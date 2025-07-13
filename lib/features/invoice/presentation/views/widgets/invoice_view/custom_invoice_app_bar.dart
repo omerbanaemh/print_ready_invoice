@@ -6,6 +6,7 @@ import 'package:print_ready_invoice/core/utils/size_config.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/invoice_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/localization_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_button.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/pdf_widgets/print_invoice_services.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
 class CustomInvoiceAppBar extends StatelessWidget {
@@ -19,7 +20,7 @@ class CustomInvoiceAppBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('Onyx IX Solutions', style: AppStyles.styleSemiBold26(context)),
+        Text('Onyx IX Solutions', style: AppStyles.styleSemiBold26(context).copyWith(color: Colors.blue),),
 
         SizeConfig.width(context) < SizeConfig.desktop
             ? IconButton(
@@ -49,7 +50,7 @@ class CustomInvoiceAppBar extends StatelessWidget {
                         context.read<LocalizationCubit>().changeLocale('ar');
                       },
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     CustomButton(
                       backgroundColor: Colors.white,
                       foregroundColor: Colors.black,
@@ -60,14 +61,15 @@ class CustomInvoiceAppBar extends StatelessWidget {
                         ).toggleThemeMode(useSystem: false);
                       },
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     CustomButton(
                       backgroundColor: Colors.white,
                       foregroundColor: Colors.black,
                       text: S.of(context).ai_suggest_discount,
                       icon: Icons.lightbulb_outline,
+                      onPressed: (){},
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     CustomButton(
                       backgroundColor: Colors.blue,
                       foregroundColor: Colors.white,
@@ -75,16 +77,15 @@ class CustomInvoiceAppBar extends StatelessWidget {
                       icon: Icons.print_outlined,
                       onPressed: () {
                         final cubit = context.read<InvoiceCubit>();
-                        final state = cubit.state as InvoiceLoaded;
-                        cubit.printInvoice(
-                          state.productItems,
+                        printInvoice(
+                          cubit.newList,
                           cubit.subtotal,
                           cubit.tax,
                           cubit.total,
                         );
                       },
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                   ],
                 ),
               ),

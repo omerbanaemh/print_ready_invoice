@@ -36,7 +36,7 @@ class GenerateInvoiceButton extends StatelessWidget {
                        type: values['project_type'],
                         frameWork: values['primary_framework'],
                          technologies: values['technologies_used'],
-                          description: values['description'],
+                          description: values['description']??'' ,
                           ),),
                 ));
               }

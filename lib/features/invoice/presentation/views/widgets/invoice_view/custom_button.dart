@@ -23,7 +23,7 @@ class CustomButton extends StatelessWidget {
           foregroundColor,
         ),
         padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
-          EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+         const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         ),
         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
@@ -43,7 +43,7 @@ class CustomButton extends StatelessWidget {
       ),
       TextSpan(
         text: text,
-        style: AppStyles.styleRegular14(context).copyWith(color: Colors.black),
+        style: AppStyles.styleRegular14(context).copyWith(color:foregroundColor,),
       ),
     ],
   ),

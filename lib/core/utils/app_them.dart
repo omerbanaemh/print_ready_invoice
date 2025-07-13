@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:print_ready_invoice/core/utils/app_clores.dart';
-import 'package:print_ready_invoice/core/utils/app_styles.dart';
 
 class AppTheme {
   static ThemeData lightTheme(BuildContext context) {
     return ThemeData(
-      scaffoldBackgroundColor: Color(0xFFECEEF1),
-      useMaterial3: false,
+      scaffoldBackgroundColor: const Color(0xFFECEEF1),
+      useMaterial3: true,
 
 
         colorScheme: const ColorScheme.light(
@@ -36,10 +35,14 @@ class AppTheme {
     );
   }
 
+
+
+
+
   static ThemeData darkTheme(BuildContext context) {
     return ThemeData(
       scaffoldBackgroundColor: AppClores.grey3,
-      useMaterial3: false,
+      useMaterial3: true,
 
 
       colorScheme: const ColorScheme.light(
@@ -61,14 +64,14 @@ class AppTheme {
         hintStyle: TextStyle(color: Colors.grey[400]),
       ),
 
-      textTheme: const TextTheme(
-        titleLarge: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
-        ),
-        bodyMedium: TextStyle(fontSize: 14, color: Colors.white70),
-      ),
+      // textTheme: const TextTheme(
+      //   titleLarge: TextStyle(
+      //     fontSize: 18,
+      //     fontWeight: FontWeight.bold,
+      //     color: Colors.white,
+      //   ),
+      //   bodyMedium: TextStyle(fontSize: 14, color: Colors.white70),
+      // ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color.fromARGB(255, 242, 241, 241),

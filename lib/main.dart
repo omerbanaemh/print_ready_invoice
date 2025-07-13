@@ -15,10 +15,10 @@ import 'package:print_ready_invoice/firebase_options.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
 Future<void> main() async {
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-);
-Bloc.observer = MyBlocObserver();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 
@@ -27,43 +27,50 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AdaptiveTheme(
-      light: AppTheme.lightTheme(context),
-      dark: AppTheme.darkTheme(context),
-      initial: AdaptiveThemeMode.light,
-      builder: (theme, darkTheme) => 
-      MultiBlocProvider(
+    return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => ClinetCubit()),
-        BlocProvider(create: (context) => LocalizationCubit(),),
-        BlocProvider(
-          create: (context) => InvoiceCubit(),
-        ),
+        BlocProvider(create: (context) => LocalizationCubit()),
+        BlocProvider(create: (context) => InvoiceCubit()),
       ],
-        
-        child: BlocBuilder<LocalizationCubit, LocalizationState>(
-          builder: (context, state) {
-            return MaterialApp(
-              debugShowCheckedModeBanner: false,
-              title: 'Flutter Demo',
-              theme: theme,
-              darkTheme: darkTheme,
-              locale: Locale(
-                state is LocalizationChanged ? state.locale : 'en',
-              ),
-              localizationsDelegates: const [
-                S.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-              ],
-              supportedLocales: S.delegate.supportedLocales,
 
-              home: InvoiceView(productDetails: ProductDetailsModel(name: 'name', type: 'type', frameWork: 'frameWork', technologies:[ 'technologies'], description: 'description'),),
-              // home: ProjectDetails(),
-            );
-          },
-        ),
+      child: BlocBuilder<LocalizationCubit, LocalizationState>(
+        builder: (context, state) {
+          return AdaptiveTheme(
+            light: AppTheme.lightTheme(context),
+            dark: AppTheme.darkTheme(context),
+            initial: AdaptiveThemeMode.light,
+            builder: (theme, darkTheme) {
+              return MaterialApp(
+                debugShowCheckedModeBanner: false,
+                title: 'Flutter Demo',
+                theme: theme,
+                darkTheme: darkTheme,
+                locale: Locale(
+                  state is LocalizationChanged ? state.locale : 'en',
+                ),
+                localizationsDelegates: const [
+                  S.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                supportedLocales: S.delegate.supportedLocales,
+
+                // home: InvoiceView(
+                //   productDetails: ProductDetailsModel(
+                //     name: 'name',
+                //     type: 'type',
+                //     frameWork: 'frameWork',
+                //     technologies: ['technologies'],
+                //     description: 'description',
+                //   ),
+                // ),
+                home: ProjectDetails(),
+              );
+            },
+          );
+        },
       ),
     );
   }
