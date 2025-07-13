@@ -11,7 +11,7 @@ class CustomInvoiceBodyHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.secondary,
         borderRadius: const BorderRadius.only(
@@ -36,10 +36,10 @@ class CustomInvoiceBodyHeader extends StatelessWidget {
               children: [
                 Flexible(
                   child: ConstrainedBox(
-                    constraints: BoxConstraints(maxWidth: 100,),
+                    constraints: const BoxConstraints(maxWidth: 100,),
                     child: Image.asset('assets/images/onix_ix.png',fit: BoxFit.fill,)),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Expanded(
                   flex: 3,
                   child: Column(

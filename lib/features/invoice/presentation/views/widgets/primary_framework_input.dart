@@ -14,12 +14,12 @@ class PrimaryFrameworkInput extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 24),
+        const SizedBox(height: 24),
         Text(
           S.of(context).project_framework,
           style: AppStyles.styleMedium16(context).copyWith(color: Colors.black),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
 
         FormBuilderSearchableDropdown<String>(
           name: 'primary_framework',
@@ -28,10 +28,10 @@ class PrimaryFrameworkInput extends StatelessWidget {
             context: context,
           ),
           items: frameworks,
-          popupProps: PopupProps.menu(
+          popupProps: const PopupProps.menu(
             showSearchBox: true,
             searchFieldProps: TextFieldProps(
-              decoration: InputDecoration(hintText: " S.of(context).search"),
+              decoration: InputDecoration(hintText: ' S.of(context).search'),
             ),
           ),
           validator: FormBuilderValidators.required(

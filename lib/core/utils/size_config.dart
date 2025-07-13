@@ -12,9 +12,4 @@ class SizeConfig {
     return MediaQuery.sizeOf(context).height;
   }
 
-  // static init(BuildContext context) {
-  //   height = MediaQuery.sizeOf(context).height;
-  //   width = MediaQuery.sizeOf(context).width;
-  //   print('width =  $width');
-  // }
 }

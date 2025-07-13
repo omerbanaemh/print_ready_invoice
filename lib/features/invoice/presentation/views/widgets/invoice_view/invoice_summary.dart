@@ -40,12 +40,12 @@ final InvoiceCubit cubit;
                     )),
                   ],
                 ),
-                SizedBox(height: 10),
-                Divider(),
+                const SizedBox(height: 10),
+                const Divider(),
                 Container(
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(4)),
+                    borderRadius: const BorderRadius.all(Radius.circular(4)),
                      color: Theme.of(context).colorScheme.secondary,
                   ),
                   child: Row(

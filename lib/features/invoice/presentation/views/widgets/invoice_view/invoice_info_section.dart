@@ -24,7 +24,7 @@ final ProductDetailsModel productDetails;
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(S.of(context).bill_to, style: AppStyles.styleSemiBold16(context).copyWith(color: Colors.black)),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   TextButton(
                     onPressed: () {
                       showDialog(
@@ -70,7 +70,7 @@ final ProductDetailsModel productDetails;
                 S.of(context).project_details,
                 style: AppStyles.styleSemiBold16(context).copyWith(color: Colors.black),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CustomRichText(late: S.of(context).name_, text: productDetails.name),
               CustomRichText(late: S.of(context).type, text: productDetails.type),
               CustomRichText(late: S.of(context).framework, text: productDetails.frameWork),

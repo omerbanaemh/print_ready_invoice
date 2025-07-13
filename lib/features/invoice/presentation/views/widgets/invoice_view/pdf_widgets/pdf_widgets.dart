@@ -6,8 +6,8 @@ pw.Widget buildInvoiceHeader() {
   return pw.Container(
     padding: const pw.EdgeInsets.all(20),
     decoration: pw.BoxDecoration(
-      color: PdfColor.fromInt(0xFFE3F2FD), // Blue[50]
-      border: pw.Border.all(color: PdfColor.fromInt(0xFFD6D8DB)),
+      color: const PdfColor.fromInt(0xFFE3F2FD), // Blue[50]
+      border: pw.Border.all(color: const PdfColor.fromInt(0xFFD6D8DB)),
       borderRadius: const pw.BorderRadius.only(
         topLeft: pw.Radius.circular(12),
         topRight: pw.Radius.circular(12),
@@ -23,7 +23,7 @@ pw.Widget buildInvoiceHeader() {
               pw.Container(
                 padding: const pw.EdgeInsets.symmetric(horizontal: 18, vertical: 8),
                 decoration: pw.BoxDecoration(
-                  color: PdfColor.fromInt(0xFFD6D6D6),
+                  color: const PdfColor.fromInt(0xFFD6D6D6),
                   borderRadius: pw.BorderRadius.circular(8),
                 ),
                 child: pw.Text(
@@ -31,7 +31,7 @@ pw.Widget buildInvoiceHeader() {
                   style: pw.TextStyle(
                     fontSize: 14,
                     fontWeight: pw.FontWeight.bold,
-                    color: PdfColor.fromInt(0xFF9E9E9E),
+                    color: const PdfColor.fromInt(0xFF9E9E9E),
                   ),
                 ),
               ),
@@ -45,12 +45,12 @@ pw.Widget buildInvoiceHeader() {
                       style: pw.TextStyle(
                         fontSize: 14,
                         fontWeight: pw.FontWeight.bold,
-                        color: PdfColor.fromInt(0xFF2196F3), // blue
+                        color: const PdfColor.fromInt(0xFF2196F3), // blue
                       ),
                     ),
                     pw.Text(
                       '123 Innovation Drive, Tech City, 12345',
-                      style: pw.TextStyle(
+                      style: const pw.TextStyle(
                         fontSize: 12,
                         color: PdfColor.fromInt(0xFF757575), // black54
                       ),
@@ -73,11 +73,11 @@ pw.Widget buildInvoiceHeader() {
             ),
             pw.Text(
               'INV-2024-001',
-              style: pw.TextStyle(fontSize: 12),
+              style: const pw.TextStyle(fontSize: 12),
             ),
             pw.Text(
               'Date: 7-7-2025',
-              style: pw.TextStyle(fontSize: 12),
+              style: const pw.TextStyle(fontSize: 12),
             ),
           ],
         ),
@@ -101,8 +101,8 @@ pw.Widget buildInvoiceInfoSection() {
             pw.Text('Bill To:', style: pw.TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold)),
             pw.SizedBox(height: 10),
             pw.Text('Global Corp', style: pw.TextStyle(fontSize: 12, fontWeight: pw.FontWeight.bold, color: PdfColors.blue)),
-            pw.Text('456 Business Avenue, Metroplis, 67890', style: pw.TextStyle(fontSize: 10, color: PdfColors.grey700)),
-            pw.Text('contact@gmail.com', style: pw.TextStyle(fontSize: 10, color: PdfColors.grey700)),
+            pw.Text('456 Business Avenue, Metroplis, 67890', style: const pw.TextStyle(fontSize: 10, color: PdfColors.grey700)),
+            pw.Text('contact@gmail.com', style: const pw.TextStyle(fontSize: 10, color: PdfColors.grey700)),
           ],
         ),
       ),
@@ -137,7 +137,7 @@ pw.Widget _richText(String label, String value) {
         ),
         pw.TextSpan(
           text: value,
-          style: pw.TextStyle(fontSize: 10),
+          style: const pw.TextStyle(fontSize: 10),
         ),
       ],
     ),
@@ -166,7 +166,7 @@ pw.Widget buildInvoiceTable(List<ProductModel> items) {
   return pw.TableHelper.fromTextArray(
     border: pw.TableBorder.all(color: PdfColors.grey),
     cellAlignment: pw.Alignment.centerLeft,
-    headerDecoration: pw.BoxDecoration(color: PdfColors.grey300),
+    headerDecoration: const pw.BoxDecoration(color: PdfColors.grey300),
     headerStyle: pw.TextStyle(fontWeight: pw.FontWeight.bold),
     headers: ['Item', 'Quantity', 'Unit Price', 'Total'],
     data: items.map((item) {
@@ -208,16 +208,16 @@ pw.Widget buildInvoiceSummary({
           pw.Row(
             mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
             children: [
-              pw.Text('Subtotal', style: pw.TextStyle(color: PdfColors.grey800)),
-              pw.Text('\$${subtotal.toStringAsFixed(2)}', style: pw.TextStyle(color: PdfColors.black)),
+              pw.Text('Subtotal', style: const pw.TextStyle(color: PdfColors.grey800)),
+              pw.Text('\$${subtotal.toStringAsFixed(2)}', style: const pw.TextStyle(color: PdfColors.black)),
             ],
           ),
           pw.SizedBox(height: 4),
           pw.Row(
             mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
             children: [
-              pw.Text('Tax (8%)', style: pw.TextStyle(color: PdfColors.grey800)),
-              pw.Text('\$${tax.toStringAsFixed(2)}', style: pw.TextStyle(color: PdfColors.black)),
+              pw.Text('Tax (8%)', style: const pw.TextStyle(color: PdfColors.grey800)),
+              pw.Text('\$${tax.toStringAsFixed(2)}', style: const pw.TextStyle(color: PdfColors.black)),
             ],
           ),
           pw.SizedBox(height: 10),
@@ -273,7 +273,7 @@ pw.Widget buildInvoiceBody({
             bottomRight: pw.Radius.circular(12),
           ),
           border: pw.Border.all(
-            color: PdfColor.fromHex("#D6D8DB"),
+            color: PdfColor.fromHex('#D6D8DB'),
             width: 1,
           ),
         ),

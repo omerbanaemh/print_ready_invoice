@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/core/utils/size_config.dart';
-import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/localization_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/generate_invoice_button.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/primary_framework_input.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_field_input.dart';
@@ -29,22 +27,22 @@ class _ProjectDetailsState extends State<ProjectDetails> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             Text(
               S.of(context).printReady_invoice,
               style: AppStyles.styleSemiBold26(
                 context,
               ).copyWith(color: Colors.blue),
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             Center(
               child: ConstrainedBox(
-                constraints: BoxConstraints(minWidth: 500),
+                constraints: const BoxConstraints(minWidth: 500),
                 child: Container(
                   width: SizeConfig.width(context) * 0.45,
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   decoration: ShapeDecoration(
-                    color: Color(0xFFFDFDFD),
+                    color: const Color(0xFFFDFDFD),
                     shape: RoundedRectangleBorder(
                       side: BorderSide(width: 1, color: Colors.grey.shade300),
                       borderRadius: BorderRadius.circular(12),
@@ -84,7 +82,7 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                               maxLines: 3,
                             ),
                             PrimaryFrameworkInput(frameworks: frameworks),
-                            TechnologiesDropdownChips(),
+                            const TechnologiesDropdownChips(),
                             GenerateInvoiceButton(formKey: _formKey),
                           ],
                         ),
@@ -94,7 +92,7 @@ class _ProjectDetailsState extends State<ProjectDetails> {
                 ),
               ),
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
           ],
         ),
       ),

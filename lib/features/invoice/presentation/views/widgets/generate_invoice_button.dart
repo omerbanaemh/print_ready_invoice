@@ -14,7 +14,7 @@ class GenerateInvoiceButton extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 24),
+        const SizedBox(height: 24),
         Center(
           child: ElevatedButton(
             style: ButtonStyle(

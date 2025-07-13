@@ -28,8 +28,8 @@ class CustomButton extends StatelessWidget {
         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.horizontal(
-              left: borderLeft == null || borderLeft == true ? Radius.circular(4) : Radius.zero,
-              right: borderRight == null || borderRight == true ? Radius.circular(4) : Radius.zero,
+              left: borderLeft == null || borderLeft == true ? const Radius.circular(4) : Radius.zero,
+              right: borderRight == null || borderRight == true ? const Radius.circular(4) : Radius.zero,
             ),
           ),
         ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/features/invoice/models/product_model.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/invoice_cubit.dart';
@@ -19,7 +18,7 @@ class InvoiceTable extends StatelessWidget {
     return FormBuilder(
       child: DataTable(
         dataRowMaxHeight: 55,
-        headingRowColor: WidgetStateProperty.all(Color(0xFFEDEFF2)),
+        headingRowColor: WidgetStateProperty.all(const Color(0xFFEDEFF2)),
         columnSpacing: 0,
         columns: [
           DataColumn(
@@ -56,24 +55,19 @@ class InvoiceTable extends StatelessWidget {
               ).copyWith(color: Colors.black54),
             ),
           ),
-          DataColumn(label: Text('')),
+          const DataColumn(label: Text('')),
         ],
         rows: [
           ...cubit.newList.asMap().entries.map((entry) {
             final int index = entry.key;
             final ProductModel item = entry.value;
-            print('000000000000000000000000000000000000000000');
-                 print(
-        'Product: ${item.prodactName}, Quantity: ${item.quantity}, UnitPrice: ${item.unitPrice}',
-      );
-       print('11111111111111111111111111111111111111111');
             return DataRow(
               cells: [
                 DataCell(
                   FormBuilderDropdown<String>(
                     initialValue: item.prodactName,
                     name: 'project_type_$index',
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: 'Select Product...',
                       fillColor: Color(0xFFEEF0F2),
                       border: OutlineInputBorder(borderSide: BorderSide.none),
@@ -103,14 +97,14 @@ class InvoiceTable extends StatelessWidget {
                       }
                     },
                     keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(borderSide: BorderSide.none),
                     ),
                   ),
                 ),
                 DataCell(
                   Text(
-                    "\$${(item.unitPrice).toStringAsFixed(2)}",
+                    '\$${(item.unitPrice).toStringAsFixed(2)}',
                     style: AppStyles.styleRegular14(
                       context,
                     ).copyWith(color: Colors.black),
@@ -131,7 +125,7 @@ class InvoiceTable extends StatelessWidget {
                         IconButton(
                           padding: EdgeInsets.zero,
                           visualDensity: VisualDensity.compact,
-                          constraints: BoxConstraints(),
+                          constraints: const BoxConstraints(),
                           onPressed: () {
                             cubit.removeItem(index);
                           },
@@ -144,7 +138,7 @@ class InvoiceTable extends StatelessWidget {
                         IconButton(
                           padding: EdgeInsets.zero,
                           visualDensity: VisualDensity.compact,
-                          constraints: BoxConstraints(),
+                          constraints: const BoxConstraints(),
                           onPressed: () {
                             cubit.duplicateItem(index);
                           },

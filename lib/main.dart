@@ -10,7 +10,6 @@ import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/c
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/invoice_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/localization_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/invoice_view.dart';
-import 'package:print_ready_invoice/features/invoice/presentation/views/project_details.dart';
 import 'package:print_ready_invoice/firebase_options.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
@@ -57,16 +56,16 @@ class MyApp extends StatelessWidget {
                 ],
                 supportedLocales: S.delegate.supportedLocales,
 
-                // home: InvoiceView(
-                //   productDetails: ProductDetailsModel(
-                //     name: 'name',
-                //     type: 'type',
-                //     frameWork: 'frameWork',
-                //     technologies: ['technologies'],
-                //     description: 'description',
-                //   ),
-                // ),
-                home: ProjectDetails(),
+                home: InvoiceView(
+                  productDetails: ProductDetailsModel(
+                    name: 'name',
+                    type: 'type',
+                    frameWork: 'frameWork',
+                    technologies: ['technologies'],
+                    description: 'description',
+                  ),
+                ),
+                // home: ProjectDetails(),
               );
             },
           );

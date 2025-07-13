@@ -26,11 +26,11 @@ class _TechnologiesDropdownChipsState extends State<TechnologiesDropdownChips> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 24),
+        const SizedBox(height: 24),
          Text(
           S.of(context).technologies_used,
           style: AppStyles.styleMedium16(context).copyWith(color: Colors.black)),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         FormBuilderField<List<String>>(
           name: 'technologies_used',
           initialValue: selectedValues,

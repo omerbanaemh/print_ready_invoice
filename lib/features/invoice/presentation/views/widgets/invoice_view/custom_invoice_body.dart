@@ -72,7 +72,7 @@ final ProductDetailsModel productDetails;
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               CustomButton(
-                                backgroundColor: Color(0xFFF3F3F3),
+                                backgroundColor: const Color(0xFFF3F3F3),
                                 foregroundColor: Colors.black,
                                 text: S.of(context).add_item,
                                 icon: Icons.add,

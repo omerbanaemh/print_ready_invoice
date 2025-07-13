@@ -48,24 +48,12 @@ class InvoiceCubit extends Cubit<InvoiceState> {
     );
     emit(InvoiceLoaded());
     _updateTotals(newList);
-    print('Current newList contents:');
-    for (var item in newList) {
-      print(
-        'Product: ${item.prodactName}, Quantity: ${item.quantity}, UnitPrice: ${item.unitPrice}',
-      );
-    }
   }
 
   void removeItem(int index) {
     newList.removeAt(index);
     emit(InvoiceLoaded());
     _updateTotals(newList);
-    print('Current newList contents:');
-    for (var item in newList) {
-      print(
-        'Product: ${item.prodactName}, Quantity: ${item.quantity}, UnitPrice: ${item.unitPrice}',
-      );
-    }
   }
 
   void duplicateItem(int index) {
@@ -78,19 +66,8 @@ class InvoiceCubit extends Cubit<InvoiceState> {
     );
     emit(InvoiceLoaded());
     _updateTotals(newList);
-    print('=====================================');
-    for (var item in newList) {
-      print(
-        'Product: ${item.prodactName}, Quantity: ${item.quantity}, UnitPrice: ${item.unitPrice}',
-      );
-    }
   }
 
-  // void updateProduct(int index, String product) {
-  //   newList[index].prodactName = product;
-  //   emit(InvoiceLoaded());
-  //   _updateTotals(newList);
-  // }
 
   void updateProduct(int index, String productName) {
     final matchedProduct = products.firstWhere(
@@ -111,12 +88,6 @@ class InvoiceCubit extends Cubit<InvoiceState> {
     newList[index].quantity = quantity;
     emit(InvoiceLoaded());
     _updateTotals(newList);
-    print('Current newList contents:');
-    for (var item in newList) {
-      print(
-        'Product: ${item.prodactName}, Quantity: ${item.quantity}, UnitPrice: ${item.unitPrice}',
-      );
-    }
   }
 
   double subtotal = 0;

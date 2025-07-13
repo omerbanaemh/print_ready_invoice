@@ -5,7 +5,6 @@ import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/core/utils/size_config.dart';
 import 'package:print_ready_invoice/features/invoice/models/clinet_model.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/clinet_cubit.dart';
-import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/custom_input_decoration.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_field_input.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
