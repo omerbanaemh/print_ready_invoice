@@ -3,12 +3,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:print_ready_invoice/core/utils/app_router.dart';
 import 'package:print_ready_invoice/core/utils/app_them.dart';
 import 'package:print_ready_invoice/core/utils/ob_Server/bloc_observer.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/clinet_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/invoice_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/localization_cubit.dart';
-import 'package:print_ready_invoice/features/invoice/presentation/views/project_details.dart';
 import 'package:print_ready_invoice/firebase_options.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
@@ -39,7 +39,8 @@ class MyApp extends StatelessWidget {
             dark: AppTheme.darkTheme(context),
             initial: AdaptiveThemeMode.light,
             builder: (theme, darkTheme) {
-              return MaterialApp(
+              return MaterialApp.router(
+                routerConfig: AppRouter.router,
                 debugShowCheckedModeBanner: false,
                 title: 'Flutter Demo',
                 theme: theme,
@@ -54,17 +55,6 @@ class MyApp extends StatelessWidget {
                   GlobalCupertinoLocalizations.delegate,
                 ],
                 supportedLocales: S.delegate.supportedLocales,
-
-                // home: InvoiceView(
-                //   productDetails: ProductDetailsModel(
-                //     name: 'name',
-                //     type: 'type',
-                //     frameWork: 'frameWork',
-                //     technologies: ['technologies'],
-                //     description: 'description',
-                //   ),
-                // ),
-                home: const ProjectDetails(),
               );
             },
           );

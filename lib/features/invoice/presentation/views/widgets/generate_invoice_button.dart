@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:go_router/go_router.dart';
+import 'package:print_ready_invoice/core/utils/app_router.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/features/invoice/domin/entities/product_details_entity.dart';
-import 'package:print_ready_invoice/features/invoice/presentation/views/invoice_view.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
 class GenerateInvoiceButton extends StatelessWidget {
@@ -28,17 +29,17 @@ class GenerateInvoiceButton extends StatelessWidget {
             ),
             onPressed: () {
               if (formKey.currentState!.saveAndValidate()) {
-               final values = formKey.currentState!.value;
-                Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => InvoiceView(
-                    productDetails: ProductDetailsEntity(
-                      name:  values['name'],
-                       type: values['project_type'],
-                        frameWork: values['primary_framework'],
-                         technologies: values['technologies_used'],
-                          description: values['description']??'' ,
-                          ),),
-                ));
+                final values = formKey.currentState!.value;
+                GoRouter.of(context).push(
+                  AppRouter.kInvoiceView,
+                  extra: ProductDetailsEntity(
+                    name: values['name'],
+                    type: values['project_type'],
+                    frameWork: values['primary_framework'],
+                    technologies: values['technologies_used'],
+                    description: values['description'] ?? '',
+                  ),
+                );
               }
             },
             child: SizedBox(
@@ -46,9 +47,9 @@ class GenerateInvoiceButton extends StatelessWidget {
               child: Center(
                 child: Text(
                   S.of(context).generate_invoice,
-                  style: AppStyles.styleMedium16(context).copyWith(
-                    color: Colors.white,
-                  ),
+                  style: AppStyles.styleMedium16(
+                    context,
+                  ).copyWith(color: Colors.white),
                 ),
               ),
             ),
