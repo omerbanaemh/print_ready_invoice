@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:print_ready_invoice/core/utils/adaptive_layout_widget.dart';
-import 'package:print_ready_invoice/features/invoice/models/product_details_model.dart';
+import 'package:print_ready_invoice/features/invoice/domin/entities/product_details_entity.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/invoice_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_button.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_invoice_body_header.dart';
@@ -13,7 +13,7 @@ import 'package:print_ready_invoice/generated/l10n.dart';
 class CustomInvoiceBody extends StatelessWidget {
   const CustomInvoiceBody({super.key, required this.productDetails});
 
-final ProductDetailsModel productDetails;
+final ProductDetailsEntity productDetails;
   @override
   Widget build(BuildContext context) {
     return 

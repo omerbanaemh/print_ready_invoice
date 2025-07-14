@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
-import 'package:print_ready_invoice/features/invoice/models/product_details_model.dart';
+import 'package:print_ready_invoice/features/invoice/domin/entities/product_details_entity.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/invoice_view.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
@@ -31,7 +31,7 @@ class GenerateInvoiceButton extends StatelessWidget {
                final values = formKey.currentState!.value;
                 Navigator.push(context, MaterialPageRoute(
                   builder: (context) => InvoiceView(
-                    productDetails: ProductDetailsModel(
+                    productDetails: ProductDetailsEntity(
                       name:  values['name'],
                        type: values['project_type'],
                         frameWork: values['primary_framework'],

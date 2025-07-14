@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
+import 'package:print_ready_invoice/features/invoice/domin/entities/product_details_entity.dart';
 import 'package:print_ready_invoice/features/invoice/models/clinet_model.dart';
-import 'package:print_ready_invoice/features/invoice/models/product_details_model.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/clinet_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_rich_text.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/edit_clinet_dialog.dart';
@@ -11,7 +11,7 @@ import 'package:print_ready_invoice/generated/l10n.dart';
 class InvoiceInfoSection extends StatelessWidget {
   const InvoiceInfoSection({super.key, required this.productDetails});
 
-final ProductDetailsModel productDetails;
+final ProductDetailsEntity productDetails;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -77,7 +77,7 @@ final ProductDetailsModel productDetails;
               CustomRichText(late: S.of(context).technologies, text: productDetails.technologies.join(', ')),
               CustomRichText(
                 late: S.of(context).description,
-                text: productDetails.description,
+                text: productDetails.description?? '',
               ),
             ],
           ),

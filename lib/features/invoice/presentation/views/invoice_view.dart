@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:print_ready_invoice/core/utils/size_config.dart';
-import 'package:print_ready_invoice/features/invoice/models/product_details_model.dart';
+import 'package:print_ready_invoice/features/invoice/domin/entities/product_details_entity.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_drawer.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_invoice_app_bar.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_invoice_body.dart';
@@ -9,7 +9,7 @@ import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/
 class InvoiceView extends StatelessWidget {
   InvoiceView({super.key, required this.productDetails});
 
-  final ProductDetailsModel productDetails;
+  final ProductDetailsEntity productDetails;
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
