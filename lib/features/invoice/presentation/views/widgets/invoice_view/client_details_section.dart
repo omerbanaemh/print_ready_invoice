@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/features/invoice/domin/entities/client_entity.dart';
-import 'package:print_ready_invoice/features/invoice/models/clinet_model.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/client_details_cubit/clinet_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/edit_clinet_dialog.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
@@ -28,7 +27,7 @@ class ClientDetailsSection extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (context) => EditUserDialog(
-                    clinet: ClinetModel(
+                    clinet: ClientEntity(
                       name: client.name,
                       address: client.address,
                       email: client.email,

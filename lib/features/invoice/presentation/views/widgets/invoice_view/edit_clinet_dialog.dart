@@ -4,13 +4,12 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/core/utils/size_config.dart';
 import 'package:print_ready_invoice/features/invoice/domin/entities/client_entity.dart';
-import 'package:print_ready_invoice/features/invoice/models/clinet_model.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/client_details_cubit/clinet_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_field_input.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
 class EditUserDialog extends StatelessWidget {
-  final ClinetModel clinet;
+  final ClientEntity clinet;
 
   const EditUserDialog({super.key, required this.clinet});
 
