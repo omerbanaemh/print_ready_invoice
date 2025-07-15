@@ -28,6 +28,12 @@ class ProductRepoImpl extends ProductRepo {
       return Left(ServerFailure(e.toString()));
     }
   }
+  
+  @override
+  Future<Either<Failure, Unit>> updateProduct(String? productName, int? quantity) {
+    // TODO: implement updateProduct
+    throw UnimplementedError();
+  }
 
 
 }
