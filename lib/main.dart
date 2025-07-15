@@ -20,7 +20,7 @@ import 'package:print_ready_invoice/generated/l10n.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-setupServiceLocator();
+  setupServiceLocator();
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
@@ -32,7 +32,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => ClientCubit(FetchClientDetailsUseCase(clinetRepo: getIt.get<ClientRepoImpl>()), UpdateClientDetailsUseCase(clinetRepo: getIt.get<ClientRepoImpl>()))..fetchClientDetails()),
+        BlocProvider(
+          create: (context) => ClientCubit(
+            getIt.get<FetchClientDetailsUseCase>(),
+            getIt.get<UpdateClientDetailsUseCase>(),
+          )..fetchClientDetails(),
+        ),
         BlocProvider(create: (context) => LocalizationCubit()),
         BlocProvider(create: (context) => InvoiceCubit()),
       ],

@@ -4,11 +4,11 @@ import 'package:print_ready_invoice/features/invoice/domin/entities/client_entit
 import 'package:print_ready_invoice/features/invoice/domin/repos/clinet_repo.dart';
 
 class FetchClientDetailsUseCase {
-  final ClinetRepo clinetRepo;
+  final ClinetRepo clientRepo;
 
-  FetchClientDetailsUseCase({required this.clinetRepo});
+  FetchClientDetailsUseCase({required this.clientRepo});
 
   Future<Either<Failure, ClientEntity>> call() async {
-    return await clinetRepo.fetchClientDetails();
+    return await clientRepo.fetchClientDetails();
   }
 }
