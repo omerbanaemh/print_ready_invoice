@@ -1,24 +1,24 @@
-import 'package:print_ready_invoice/features/invoice/domin/entities/client_entity.dart';
+import 'package:print_ready_invoice/features/invoice/data/models/client_model.dart';
 
 abstract class ClientLocalDataSource {
-  ClientEntity? fetchClientDetails();
-  ClientEntity updateClientDetails(ClientEntity client);
+  Future<ClientModel?> fetchClientDetails();
+  Future<ClientModel> updateClientDetails(ClientModel client);
 
 }
 
 
 class ClientLocalDataSourceImpl extends ClientLocalDataSource{
- ClientEntity? client = ClientEntity(name: 'Global Corp',address: '123 Street Name, City, 12345',email: 'contact@gmail.com');
+ ClientModel? client = ClientModel(name: 'Global Corp',address: '123 Street Name, City, 12345',email: 'contact@gmail.com');
 
   @override
-  ClientEntity? fetchClientDetails() {
-    return client;
+  Future<ClientModel?> fetchClientDetails() async{
+    return Future.value(client);
   }
   
   @override
-  ClientEntity updateClientDetails(ClientEntity client) {
+  Future<ClientModel> updateClientDetails(ClientModel client) async{
     final clientUpdated =  this.client = client;
-    return clientUpdated;
+    return Future.value(clientUpdated);
   }
 
 }

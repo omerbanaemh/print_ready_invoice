@@ -8,7 +8,7 @@ class UpdateClientDetailsUseCase {
 
   UpdateClientDetailsUseCase({required this.clinetRepo});
 
-  Either<Failure, ClientEntity> call(ClientEntity client)  {
-    return  clinetRepo.updateClientDetails(client);
+  Future<Either<Failure, ClientEntity>> call(ClientEntity client)  async{
+    return clinetRepo.updateClientDetails(client);
   }
 }

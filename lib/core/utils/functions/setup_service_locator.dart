@@ -5,6 +5,13 @@ import 'package:print_ready_invoice/features/invoice/data/repos/client_repo_impl
 final getIt = GetIt.instance;
 
 void setupServiceLocator(){
-  getIt.registerSingleton(ClientRepoImpl(clientLocalDataSource: ClientLocalDataSourceImpl()));
+  // getIt.registerSingleton<ClientRepoImpl>(ClientRepoImpl(clientLocalDataSource: ClientLocalDataSourceImpl()));
 
+  getIt.registerSingleton<ClientLocalDataSource>(
+  ClientLocalDataSourceImpl(),
+);
+
+getIt.registerSingleton<ClientRepoImpl>(
+  ClientRepoImpl(clientLocalDataSource: getIt.get<ClientLocalDataSource>()),
+);
 }

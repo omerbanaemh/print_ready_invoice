@@ -4,5 +4,5 @@ import 'package:print_ready_invoice/features/invoice/domin/entities/client_entit
 
 abstract class ClinetRepo {
  Future<Either<Failure, ClientEntity>> fetchClientDetails();
- Either<Failure, ClientEntity> updateClientDetails(ClientEntity client);
+ Future<Either<Failure, ClientEntity>> updateClientDetails(ClientEntity client);
 }

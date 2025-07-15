@@ -8,9 +8,9 @@ import 'package:print_ready_invoice/core/utils/app_router.dart';
 import 'package:print_ready_invoice/core/utils/app_them.dart';
 import 'package:print_ready_invoice/core/utils/bloc_observer.dart';
 import 'package:print_ready_invoice/core/utils/functions/setup_service_locator.dart';
-import 'package:print_ready_invoice/features/invoice/data/data_sources/client_local_data_source.dart';
 import 'package:print_ready_invoice/features/invoice/data/repos/client_repo_impl.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/fetch_client_details_use_case.dart';
+import 'package:print_ready_invoice/features/invoice/domin/use_cases/update_client_details_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/client_details_cubit/clinet_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/invoice_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/localization_cubit.dart';
@@ -20,7 +20,7 @@ import 'package:print_ready_invoice/generated/l10n.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
+setupServiceLocator();
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => ClientCubit(FetchClientDetailsUseCase(clinetRepo: getIt.get<ClientRepoImpl>()))..fetchClientDetails()),
+        BlocProvider(create: (context) => ClientCubit(FetchClientDetailsUseCase(clinetRepo: getIt.get<ClientRepoImpl>()), UpdateClientDetailsUseCase(clinetRepo: getIt.get<ClientRepoImpl>()))..fetchClientDetails()),
         BlocProvider(create: (context) => LocalizationCubit()),
         BlocProvider(create: (context) => InvoiceCubit()),
       ],

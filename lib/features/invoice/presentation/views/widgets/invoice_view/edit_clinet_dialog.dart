@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/core/utils/size_config.dart';
+import 'package:print_ready_invoice/features/invoice/domin/entities/client_entity.dart';
 import 'package:print_ready_invoice/features/invoice/models/clinet_model.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/client_details_cubit/clinet_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_field_input.dart';
@@ -69,13 +70,13 @@ class EditUserDialog extends StatelessWidget {
           onPressed: () {
             if (formKey.currentState?.saveAndValidate() ?? false) {
               final values = formKey.currentState!.value;
-              final updatedClient = ClinetModel(
+              final updatedClient = ClientEntity(
                 name: values['name'],
                 address: values['address'],
                 email: values['email'],
               );
 
-              // context.read<ClientCubit>().updateClinet(updatedClient);
+              context.read<ClientCubit>().updateClientDetails(updatedClient);
               Navigator.of(context).pop();
             }
           },
