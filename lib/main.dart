@@ -11,9 +11,9 @@ import 'package:print_ready_invoice/core/utils/functions/setup_service_locator.d
 import 'package:print_ready_invoice/features/invoice/data/repos/client_repo_impl.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/fetch_client_details_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/update_client_details_use_case.dart';
-import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/client_details_cubit/clinet_cubit.dart';
-import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/invoice_cubit.dart';
-import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/localization_cubit.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/manger/client_details_cubit/clinet_cubit.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/manger/invoice_cubit/invoice_cubit.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/manger/localization_cubit/localization_cubit.dart';
 import 'package:print_ready_invoice/firebase_options.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 

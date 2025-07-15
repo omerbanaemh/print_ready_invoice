@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
-import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/invoice_cubit.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/manger/invoice_cubit/invoice_cubit.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
 class InvoiceSummary extends StatelessWidget {

@@ -3,11 +3,13 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:print_ready_invoice/features/invoice/domin/entities/product_entity.dart';
+import 'package:print_ready_invoice/features/invoice/domin/use_cases/fetch_products_use_case.dart';
 
 part 'invoice_state.dart';
 
 class InvoiceCubit extends Cubit<InvoiceState> {
-  InvoiceCubit() : super(InvoiceInitial());
+  final FetchProductsUseCase fetchProductsUseCase;
+  InvoiceCubit(this.fetchProductsUseCase) : super(InvoiceInitial());
   final List<ProductEntity> newList = [];
   final List<ProductEntity> products = [
     ProductEntity(
@@ -38,6 +40,16 @@ class InvoiceCubit extends Cubit<InvoiceState> {
     'Custom Plugin Development',
   ];
 
+  Future<void> fetchProducts() async {
+    emit(InvoiceLoading());
+    final result = await fetchProductsUseCase.call();
+    result.fold(
+      (failure) => emit(InvoiceFailure(errorMessage: failure.message)),
+      (products) => emit(InvoiceLoaded(products: products)),
+    );
+  }
+
+
   void addItem() {
     newList.add(
       ProductEntity(
@@ -46,13 +58,13 @@ class InvoiceCubit extends Cubit<InvoiceState> {
         unitPrice: 0,
       ),
     );
-    emit(InvoiceLoaded());
+    emit(InvoiceLoaded(products: newList));
     _updateTotals(newList);
   }
 
   void removeItem(int index) {
     newList.removeAt(index);
-    emit(InvoiceLoaded());
+    emit(InvoiceLoaded(products: newList));
     _updateTotals(newList);
   }
 
@@ -64,7 +76,7 @@ class InvoiceCubit extends Cubit<InvoiceState> {
         unitPrice: newList[index].unitPrice,
       ),
     );
-    emit(InvoiceLoaded());
+    emit(InvoiceLoaded(products: newList));
     _updateTotals(newList);
   }
 
@@ -80,13 +92,13 @@ class InvoiceCubit extends Cubit<InvoiceState> {
     );
 
     newList[index] = matchedProduct; 
-    emit(InvoiceLoaded());
+    emit(InvoiceLoaded(products: newList));
     _updateTotals(newList);
   }
 
   void updateQuantity(int index, int quantity) {
     newList[index].quantity = quantity;
-    emit(InvoiceLoaded());
+    emit(InvoiceLoaded(products: newList));
     _updateTotals(newList);
   }
 
