@@ -2,6 +2,8 @@ import 'package:print_ready_invoice/features/invoice/domin/entities/client_entit
 
 abstract class ClientLocalDataSource {
   ClientEntity? fetchClientDetails();
+  ClientEntity updateClientDetails(ClientEntity client);
+
 }
 
 
@@ -11,6 +13,12 @@ class ClientLocalDataSourceImpl extends ClientLocalDataSource{
   @override
   ClientEntity? fetchClientDetails() {
     return client;
+  }
+  
+  @override
+  ClientEntity updateClientDetails(ClientEntity client) {
+    final clientUpdated =  this.client = client;
+    return clientUpdated;
   }
 
 }
