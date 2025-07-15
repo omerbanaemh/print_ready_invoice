@@ -7,7 +7,7 @@ class AddProductUseCase {
   final ProductRepo productRepo;
   AddProductUseCase(this.productRepo);
 
-  Future<Either<Failure, Unit>> call(ProductEntity productEntity) async{
-    return await productRepo.addProduct(productEntity);
+  Future<Either<Failure, Unit>> call() async{
+    return await productRepo.addProduct();
   }
 }

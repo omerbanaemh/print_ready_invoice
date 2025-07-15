@@ -2,7 +2,7 @@ import 'package:print_ready_invoice/features/invoice/data/models/product_model.d
 
 abstract class ProductLocalDataSource {
   Future<List<ProductModel>> fetchProducts();
-  Future<void> addProduct(ProductModel product);
+  Future<void> addProduct();
 }
 
 class ProductLocalDataSourceImpl implements ProductLocalDataSource {
@@ -14,8 +14,8 @@ class ProductLocalDataSourceImpl implements ProductLocalDataSource {
   }
   
   @override
-  Future<void> addProduct(ProductModel product) {
-    products.add(product);
+  Future<void> addProduct() {
+    products.add(ProductModel(prodactName: '', quantity: 1, unitPrice: 0.0));
     return Future.value();
   }
 }

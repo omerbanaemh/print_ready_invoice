@@ -110,7 +110,7 @@ class NewWidget extends StatelessWidget {
               text: S.of(context).add_item,
               icon: Icons.add,
               onPressed: () {
-                cubit.addItem();
+                cubit.addProduct();
               },
             ),
           ],

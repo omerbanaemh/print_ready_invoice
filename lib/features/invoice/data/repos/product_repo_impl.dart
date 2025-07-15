@@ -20,14 +20,14 @@ class ProductRepoImpl extends ProductRepo {
   }
   
   @override
-  Future<Either<Failure, Unit>> addProduct(ProductEntity productEntity) async{
+  Future<Either<Failure, Unit>> addProduct() async{
     try{
-      productLocalDataSource.addProduct(productEntity as ProductModel);
+      productLocalDataSource.addProduct();
       return const Right(unit);
     }catch(e){
       return Left(ServerFailure(e.toString()));
     }
   }
 
-  
+
 }

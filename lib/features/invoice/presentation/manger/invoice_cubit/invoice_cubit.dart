@@ -54,9 +54,9 @@ class InvoiceCubit extends Cubit<InvoiceState> {
     );
   }
 
-  Future<void> addProduct(ProductEntity product) async {
+  Future<void> addProduct() async {
     emit(InvoiceLoading());
-    final result = await addProductUseCase.call(product);
+    final result = await addProductUseCase.call();
     result.fold(
       (failure) => emit(InvoiceFailure(errorMessage: failure.message)),
       (_) async => await fetchProducts(),
