@@ -1,4 +1,4 @@
-import 'package:print_ready_invoice/features/invoice/models/product_model.dart';
+import 'package:print_ready_invoice/features/invoice/data/models/product_model.dart';
 
 abstract class ProductLocalDataSource {
   Future<List<ProductModel>> fetchProducts();

@@ -2,30 +2,30 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:print_ready_invoice/features/invoice/models/product_model.dart';
+import 'package:print_ready_invoice/features/invoice/domin/entities/product_entity.dart';
 
 part 'invoice_state.dart';
 
 class InvoiceCubit extends Cubit<InvoiceState> {
   InvoiceCubit() : super(InvoiceInitial());
-  final List<ProductModel> newList = [];
-  final List<ProductModel> products = [
-    ProductModel(
+  final List<ProductEntity> newList = [];
+  final List<ProductEntity> products = [
+    ProductEntity(
       prodactName: 'UI/UX Design Package',
       quantity: 1,
       unitPrice: 58,
     ),
-    ProductModel(
+    ProductEntity(
       prodactName: 'Cloud Hosting (Annual)',
       quantity: 1,
       unitPrice: 94,
     ),
-    ProductModel(
+    ProductEntity(
       prodactName: 'Support & Maintenance',
       quantity: 1,
       unitPrice: 55,
     ),
-    ProductModel(
+    ProductEntity(
       prodactName: 'Custom Plugin Development',
       quantity: 1,
       unitPrice: 67,
@@ -40,7 +40,7 @@ class InvoiceCubit extends Cubit<InvoiceState> {
 
   void addItem() {
     newList.add(
-      ProductModel(
+      ProductEntity(
         prodactName: '',
         quantity: 1,
         unitPrice: 0,
@@ -58,7 +58,7 @@ class InvoiceCubit extends Cubit<InvoiceState> {
 
   void duplicateItem(int index) {
     newList.add(
-      ProductModel(
+      ProductEntity(
         prodactName: newList[index].prodactName,
         quantity: newList[index].quantity,
         unitPrice: newList[index].unitPrice,
@@ -72,7 +72,7 @@ class InvoiceCubit extends Cubit<InvoiceState> {
   void updateProduct(int index, String productName) {
     final matchedProduct = products.firstWhere(
       (p) => p.prodactName == productName,
-      orElse: () => ProductModel(
+      orElse: () => ProductEntity(
         prodactName: 'Select Product...',
         quantity: 0,
         unitPrice: 0,
@@ -94,7 +94,7 @@ class InvoiceCubit extends Cubit<InvoiceState> {
   double tax = 0;
   double total = 0;
 
-  void _updateTotals(List<ProductModel> items) {
+  void _updateTotals(List<ProductEntity> items) {
     subtotal = items.fold(
       0,
       (sum, item) => sum + item.quantity * item.unitPrice,

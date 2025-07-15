@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
-import 'package:print_ready_invoice/features/invoice/models/product_model.dart';
+import 'package:print_ready_invoice/features/invoice/domin/entities/product_entity.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/cubit/invoice_cubit.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
@@ -60,7 +60,7 @@ class InvoiceTable extends StatelessWidget {
         rows: [
           ...cubit.newList.asMap().entries.map((entry) {
             final int index = entry.key;
-            final ProductModel item = entry.value;
+            final ProductEntity item = entry.value;
             return DataRow(
               cells: [
                 DataCell(

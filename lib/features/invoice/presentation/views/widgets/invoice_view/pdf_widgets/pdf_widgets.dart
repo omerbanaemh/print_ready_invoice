@@ -1,6 +1,6 @@
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
-import 'package:print_ready_invoice/features/invoice/models/product_model.dart';
+import 'package:print_ready_invoice/features/invoice/domin/entities/product_entity.dart';
 
 pw.Widget buildInvoiceHeader() {
   return pw.Container(
@@ -162,7 +162,7 @@ pw.Widget _richText(String label, String value) {
 
 
 
-pw.Widget buildInvoiceTable(List<ProductModel> items) {
+pw.Widget buildInvoiceTable(List<ProductEntity> items) {
   return pw.TableHelper.fromTextArray(
     border: pw.TableBorder.all(color: PdfColors.grey),
     cellAlignment: pw.Alignment.centerLeft,
