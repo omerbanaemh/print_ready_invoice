@@ -2,19 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/features/invoice/domin/entities/product_entity.dart';
-import 'package:print_ready_invoice/features/invoice/presentation/manger/invoice_cubit/invoice_cubit.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
 class InvoiceTable extends StatelessWidget {
   const InvoiceTable({
-    super.key,
-    required this.cubit,
+    super.key, required this.products,
   });
 
-  final InvoiceCubit cubit;
+  // final InvoiceCubit cubit;
+  final List<ProductEntity> products;
 
   @override
   Widget build(BuildContext context) {
+      final List<String> pro = [
+    'UI/UX Design Package',
+    'Cloud Hosting (Annual)',
+    'Support & Maintenance',
+    'Custom Plugin Development',
+  ];
     return FormBuilder(
       child: DataTable(
         dataRowMaxHeight: 55,
@@ -58,7 +63,7 @@ class InvoiceTable extends StatelessWidget {
           const DataColumn(label: Text('')),
         ],
         rows: [
-          ...cubit.newList.asMap().entries.map((entry) {
+          ...products.asMap().entries.map((entry) {
             final int index = entry.key;
             final ProductEntity item = entry.value;
             return DataRow(
@@ -72,7 +77,7 @@ class InvoiceTable extends StatelessWidget {
                       fillColor: Color(0xFFEEF0F2),
                       border: OutlineInputBorder(borderSide: BorderSide.none),
                     ),
-                    items: cubit.pro
+                    items: pro
                         .map(
                           (item) => DropdownMenuItem(
                             value: item,
@@ -80,22 +85,22 @@ class InvoiceTable extends StatelessWidget {
                           ),
                         )
                         .toList(),
-                    onChanged: (product) {
-                      if (product != null) {
-                        cubit.updateProduct(index, product);
-                      }
-                    },
+                    // onChanged: (product) {
+                    //   if (product != null) {
+                    //     cubit.updateProduct(index, product);
+                    //   }
+                    // },
                   ),
                 ),
                 DataCell(
                   FormBuilderTextField(
                     name: 'quantity_$index',
                     initialValue: item.quantity.toString(),
-                    onChanged: (value) {
-                      if (value != null && int.tryParse(value) != null) {
-                        cubit.updateQuantity(index, int.parse(value));
-                      }
-                    },
+                    // onChanged: (value) {
+                    //   if (value != null && int.tryParse(value) != null) {
+                    //     cubit.updateQuantity(index, int.parse(value));
+                    //   }
+                    // },
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(borderSide: BorderSide.none),
@@ -127,7 +132,7 @@ class InvoiceTable extends StatelessWidget {
                           visualDensity: VisualDensity.compact,
                           constraints: const BoxConstraints(),
                           onPressed: () {
-                            cubit.removeItem(index);
+                            // cubit.removeItem(index);
                           },
                           icon: const Icon(
                             Icons.delete_outline,
@@ -140,7 +145,7 @@ class InvoiceTable extends StatelessWidget {
                           visualDensity: VisualDensity.compact,
                           constraints: const BoxConstraints(),
                           onPressed: () {
-                            cubit.duplicateItem(index);
+                            // cubit.duplicateItem(index);
                           },
                           icon: const Icon(Icons.copy, size: 16),
                         ),
