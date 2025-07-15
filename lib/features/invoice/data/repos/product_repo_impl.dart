@@ -18,4 +18,10 @@ class ProductRepoImpl extends ProductRepo {
       return Left(ServerFailure(e.toString()));
     }
   }
+  
+  @override
+  Future<Either<Failure, ProductEntity>> addProduct(ProductEntity productEntity) {
+    // TODO: implement addProduct
+    throw UnimplementedError();
+  }
 }
