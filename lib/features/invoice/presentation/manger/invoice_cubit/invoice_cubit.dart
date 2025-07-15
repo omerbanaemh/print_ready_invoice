@@ -1,15 +1,20 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
 import 'package:print_ready_invoice/features/invoice/domin/entities/product_entity.dart';
+import 'package:print_ready_invoice/features/invoice/domin/use_cases/add_product_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/fetch_products_use_case.dart';
 
 part 'invoice_state.dart';
 
 class InvoiceCubit extends Cubit<InvoiceState> {
   final FetchProductsUseCase fetchProductsUseCase;
-  InvoiceCubit(this.fetchProductsUseCase) : super(InvoiceInitial());
+  final AddProductUseCase addProductUseCase;
+
+  InvoiceCubit(this.fetchProductsUseCase, this.addProductUseCase) : super(InvoiceInitial());
+  
   final List<ProductEntity> newList = [];
   final List<ProductEntity> products = [
     ProductEntity(
@@ -48,6 +53,19 @@ class InvoiceCubit extends Cubit<InvoiceState> {
       (products) => emit(InvoiceLoaded(products: products)),
     );
   }
+
+  Future<void> addProduct(ProductEntity product) async {
+    emit(InvoiceLoading());
+    final result = await addProductUseCase.call(product);
+    result.fold(
+      (failure) => emit(InvoiceFailure(errorMessage: failure.message)),
+      (_) async => await fetchProducts(),
+    );
+  }
+
+
+
+
 
 
   void addItem() {

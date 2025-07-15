@@ -51,15 +51,12 @@ class CustomInvoiceBody extends StatelessWidget {
                 builder: (context, state) {
                   return BlocBuilder<InvoiceCubit, InvoiceState>(
                     builder: (context, state) {
-                      // final List<ProductEntity> products = (state as InvoiceLoaded).products;
                       if (state is InvoiceLoaded) {
                         final List<ProductEntity> products = state.products;
                         return NewWidget(products: products);
                       }else  {
                         return const NewWidget(products:[]);
                       }
-                      // final cubit = context.read<InvoiceCubit>();
-                      // return NewWidget(products: products);
                     },
                   );
                 },
@@ -82,6 +79,7 @@ class NewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<InvoiceCubit>();
     return Column(
       children: [
         const SizedBox(height: 12),
@@ -111,9 +109,9 @@ class NewWidget extends StatelessWidget {
               foregroundColor: Colors.black,
               text: S.of(context).add_item,
               icon: Icons.add,
-              // onPressed: () {
-              //   cubit.addItem();
-              // },
+              onPressed: () {
+                cubit.addItem();
+              },
             ),
           ],
         ),
