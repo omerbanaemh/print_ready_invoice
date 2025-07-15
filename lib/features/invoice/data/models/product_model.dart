@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:print_ready_invoice/features/invoice/domin/entities/product_entity.dart';
 
 class ProductModel {
