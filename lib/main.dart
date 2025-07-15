@@ -3,9 +3,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get_it/get_it.dart';
 import 'package:print_ready_invoice/core/utils/app_router.dart';
 import 'package:print_ready_invoice/core/utils/app_them.dart';
-import 'package:print_ready_invoice/core/utils/ob_Server/bloc_observer.dart';
+import 'package:print_ready_invoice/core/utils/bloc_observer.dart';
+import 'package:print_ready_invoice/core/utils/functions/setup_service_locator.dart';
 import 'package:print_ready_invoice/features/invoice/data/data_sources/client_local_data_source.dart';
 import 'package:print_ready_invoice/features/invoice/data/repos/client_repo_impl.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/fetch_client_details_use_case.dart';
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => ClientCubit(FetchClientDetailsUseCase(clinetRepo: ClientRepoImpl(clientLocalDataSource: ClientLocalDataSourceImpl())))),
+        BlocProvider(create: (context) => ClientCubit(FetchClientDetailsUseCase(clinetRepo: getIt.get<ClientRepoImpl>()))..fetchClientDetails()),
         BlocProvider(create: (context) => LocalizationCubit()),
         BlocProvider(create: (context) => InvoiceCubit()),
       ],
