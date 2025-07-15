@@ -21,10 +21,15 @@ class ClientRepoImpl extends ClinetRepo {
       return left(ServerFailure(e.toString()));
     }
   }
-  
+
   @override
-  Future<Either<Failure, Unit>> updateClientDetails(ClientEntity client) {
-    // TODO: implement updateClientDetails
-    throw UnimplementedError();
+   Either<Failure, ClientEntity> updateClientDetails(ClientEntity client,) {
+    try {
+      final ClientEntity clientDetails = clientLocalDataSource
+          .updateClientDetails(client);
+      return Right(clientDetails);
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
+    }
   }
 }
