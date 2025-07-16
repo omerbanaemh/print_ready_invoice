@@ -4,6 +4,7 @@ abstract class ProductLocalDataSource {
   Future<List<ProductModel>> fetchProducts();
   Future<void> addProduct();
   Future<void> updateProduct(int index, String? productName, int? quantity);
+  Future<void> deleteProduct(int index);
 }
 
 class ProductLocalDataSourceImpl implements ProductLocalDataSource {
@@ -66,6 +67,12 @@ class ProductLocalDataSourceImpl implements ProductLocalDataSource {
       return Future.value();
     }
 
+    return Future.value();
+  }
+  
+  @override
+  Future<void> deleteProduct(int index) {
+    products.removeAt(index);
     return Future.value();
   }
 }
