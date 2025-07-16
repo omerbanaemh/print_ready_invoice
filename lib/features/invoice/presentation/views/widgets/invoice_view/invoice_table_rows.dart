@@ -8,8 +8,8 @@ List<PlutoRow> buildRows(List<ProductEntity> products) {
           cells: {
             'item': PlutoCell(value: p.prodactName),
             'quantity': PlutoCell(value: p.quantity),
-            'unitPrice': PlutoCell(value: p.unitPrice),
-            'total': PlutoCell(value: p.quantity * p.unitPrice),
+            'unitPrice': PlutoCell(value: '\$ ${p.unitPrice}'),
+            'total': PlutoCell(value: '\$ ${p.total()}'),
             'actions': PlutoCell(value: ''),
           },
         );

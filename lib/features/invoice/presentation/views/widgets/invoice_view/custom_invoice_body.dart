@@ -118,7 +118,7 @@ class NewWidget extends StatelessWidget {
         const SizedBox(height: 25),
         const Divider(),
         const SizedBox(height: 25),
-        // InvoiceSummary(cubit: cubit),
+        InvoiceSummary(products: products,),
       ],
     );
   }

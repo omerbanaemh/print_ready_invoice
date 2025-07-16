@@ -41,7 +41,7 @@ List<PlutoColumn> buildInvoiceColumns({
       PlutoColumn(
         title: S.of(context).price,
         field: 'unitPrice',
-        type: PlutoColumnType.number(),
+        type: PlutoColumnType.text(),
         enableColumnDrag: false,
         enableEditingMode: false,
         enableContextMenu: false,
@@ -51,7 +51,7 @@ List<PlutoColumn> buildInvoiceColumns({
       PlutoColumn(
         title: S.of(context).total,
         field: 'total',
-        type: PlutoColumnType.number(),
+        type: PlutoColumnType.text(),
         enableColumnDrag: false,
         enableEditingMode: false,
         enableContextMenu: false,

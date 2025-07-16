@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
+import 'package:print_ready_invoice/features/invoice/domin/entities/product_entity.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/invoice_cubit/invoice_cubit.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
 class InvoiceSummary extends StatelessWidget {
-  const InvoiceSummary({super.key, required this.cubit,});
+  const InvoiceSummary({super.key, required this.products, });
 
-final InvoiceCubit cubit;
+final List<ProductEntity> products;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -23,7 +24,7 @@ final InvoiceCubit cubit;
                     Text(S.of(context).subtotal, style: AppStyles.styleRegular14(context).copyWith(
                       color: Colors.black54
                     )),
-                    Text('\$${(cubit.subtotal).toStringAsFixed(2)}',style: AppStyles.styleRegular14(context).copyWith(
+                    Text('\$${(products.calculate().subtotal).toStringAsFixed(2)}',style: AppStyles.styleRegular14(context).copyWith(
                       color: Colors.black87
                     )),
                   ],
@@ -35,7 +36,7 @@ final InvoiceCubit cubit;
                     Text('${S.of(context).tax} (8%):', style: AppStyles.styleRegular14(context).copyWith(
                       color: Colors.black54
                     )),
-                    Text('\$${(cubit.tax).toStringAsFixed(2)}',style: AppStyles.styleRegular14(context).copyWith(
+                    Text('\$${(products.calculate().tax).toStringAsFixed(2)}',style: AppStyles.styleRegular14(context).copyWith(
                       color: Colors.black87
                     )),
                   ],
@@ -52,7 +53,7 @@ final InvoiceCubit cubit;
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(S.of(context).grand_total, style: AppStyles.styleSemiBold14(context)),
-                      Text('\$${(cubit.total).toStringAsFixed(2)}',style: AppStyles.styleSemiBold14(context),),
+                      Text('\$${(products.calculate().total).toStringAsFixed(2)}',style: AppStyles.styleSemiBold14(context),),
                     ],
                   ),
                 ),
