@@ -5,6 +5,7 @@ abstract class ProductLocalDataSource {
   Future<void> addProduct();
   Future<void> updateProduct(int index, String? productName, int? quantity);
   Future<void> deleteProduct(int index);
+  Future<void> duplicateProduct(int index);
 }
 
 class ProductLocalDataSourceImpl implements ProductLocalDataSource {
@@ -73,6 +74,12 @@ class ProductLocalDataSourceImpl implements ProductLocalDataSource {
   @override
   Future<void> deleteProduct(int index) {
     products.removeAt(index);
+    return Future.value();
+  }
+  
+  @override
+  Future<void> duplicateProduct(int index) {
+    products.insert(index + 1, products[index]);
     return Future.value();
   }
 }
