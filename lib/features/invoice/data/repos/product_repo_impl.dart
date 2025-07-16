@@ -48,6 +48,12 @@ class ProductRepoImpl extends ProductRepo {
       return Left(ServerFailure(e.toString()));
     }
   }
+  
+  @override
+  Future<Either<Failure, Unit>> duplicateProduct(int index) {
+    // TODO: implement duplicateProduct
+    throw UnimplementedError();
+  }
 
 
 }

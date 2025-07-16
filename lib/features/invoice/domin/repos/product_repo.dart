@@ -7,5 +7,6 @@ abstract class ProductRepo {
   Future< Either<Failure,Unit>> addProduct();
   Future< Either<Failure,Unit>> updateProduct(int index, String? productName, int? quantity);
   Future< Either<Failure,Unit>> deleteProduct(int index);
+  Future< Either<Failure,Unit>> duplicateProduct(int index);
 
 } 
