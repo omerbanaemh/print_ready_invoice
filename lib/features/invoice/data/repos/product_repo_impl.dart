@@ -38,6 +38,12 @@ class ProductRepoImpl extends ProductRepo {
       return Left(ServerFailure(e.toString()));
     }
   }
+  
+  @override
+  Future<Either<Failure, Unit>> deleteProduct(int index) {
+    // TODO: implement deleteProduct
+    throw UnimplementedError();
+  }
 
 
 }
