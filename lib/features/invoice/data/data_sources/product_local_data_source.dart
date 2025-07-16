@@ -79,7 +79,7 @@ class ProductLocalDataSourceImpl implements ProductLocalDataSource {
   
   @override
   Future<void> duplicateProduct(int index) {
-    products.insert(index + 1, products[index]);
+    products.insert(index + 1, products[index].copyWith());
     return Future.value();
   }
 }

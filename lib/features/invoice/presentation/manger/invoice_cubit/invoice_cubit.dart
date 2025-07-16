@@ -48,7 +48,7 @@ class InvoiceCubit extends Cubit<InvoiceState> {
 
 
   Future<void> fetchProducts() async {
-    emit(InvoiceLoading());
+    // emit(InvoiceLoading());
     final result = await fetchProductsUseCase.call();
     result.fold(
       (failure) => emit(InvoiceFailure(errorMessage: failure.message)),
@@ -57,7 +57,7 @@ class InvoiceCubit extends Cubit<InvoiceState> {
   }
 
   Future<void> addProduct() async {
-    emit(InvoiceLoading());
+    // emit(InvoiceLoading());
     final result = await addProductUseCase.call();
     result.fold(
       (failure) => emit(InvoiceFailure(errorMessage: failure.message)),
@@ -66,7 +66,7 @@ class InvoiceCubit extends Cubit<InvoiceState> {
   }
 
   Future<void> updateProduct({required int index, String? productName, int? quantity}) async {
-    emit(InvoiceLoading());
+    // emit(InvoiceLoading());
     final result = await updateProductUseCase.call(index, productName, quantity);
     result.fold(
       (failure) => emit(InvoiceFailure(errorMessage: failure.message)),
@@ -75,7 +75,7 @@ class InvoiceCubit extends Cubit<InvoiceState> {
   }
 
   Future<void> deleteProduct({required int index}) async {
-    emit(InvoiceLoading());
+    // emit(InvoiceLoading());
     final result = await deleteProductUseCase.call(index);
     result.fold(
       (failure) => emit(InvoiceFailure(errorMessage: failure.message)),
@@ -84,7 +84,7 @@ class InvoiceCubit extends Cubit<InvoiceState> {
   }
 
   Future<void> duplicateProduct({required int index}) async {
-    emit(InvoiceLoading());
+    // emit(InvoiceLoading());
     final result = await duplicateProductUseCase.call(index);
     result.fold(
       (failure) => emit(InvoiceFailure(errorMessage: failure.message)),

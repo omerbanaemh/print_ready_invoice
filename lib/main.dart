@@ -11,6 +11,7 @@ import 'package:print_ready_invoice/core/utils/functions/setup_service_locator.d
 import 'package:print_ready_invoice/features/invoice/data/repos/client_repo_impl.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/add_product_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/delete_product_use_case.dart';
+import 'package:print_ready_invoice/features/invoice/domin/use_cases/duplicate_product_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/fetch_client_details_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/fetch_products_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/update_client_details_use_case.dart';
@@ -48,6 +49,7 @@ class MyApp extends StatelessWidget {
           getIt.get<AddProductUseCase>(),
           getIt.get<UpdateProductUseCase>(),
           getIt.get<DeleteProductUseCase>(),
+          getIt.get<DuplicateProductUseCase>(),
           )),
       ],
 

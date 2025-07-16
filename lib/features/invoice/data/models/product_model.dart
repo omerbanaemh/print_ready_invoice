@@ -22,4 +22,17 @@ class ProductModel {
     quantity: quantity,
     unitPrice: unitPrice,
   );
+
+
+  ProductModel copyWith({
+    String? prodactName,
+    int? quantity,
+    double? unitPrice,
+  }) {
+    return ProductModel(
+      prodactName: prodactName ?? this.prodactName,
+      quantity: quantity ?? this.quantity,
+      unitPrice: unitPrice ?? this.unitPrice,
+    );
+  }
 }

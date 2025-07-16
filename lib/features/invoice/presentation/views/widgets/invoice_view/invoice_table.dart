@@ -67,7 +67,6 @@ class InvoiceTable extends StatelessWidget {
           ...products.asMap().entries.map((entry) {
             final int index = entry.key;
             final ProductEntity item = entry.value;
-            print('index= $index name= ${item.prodactName}  quantity= ${item.quantity}  unitPrice= ${item.unitPrice} ');
             return DataRow(
               cells: [
                 DataCell(
@@ -148,7 +147,7 @@ class InvoiceTable extends StatelessWidget {
                           visualDensity: VisualDensity.compact,
                           constraints: const BoxConstraints(),
                           onPressed: () {
-                            // cubit.duplicateItem(index);
+                            cubit.duplicateProduct(index: index);
                           },
                           icon: const Icon(Icons.copy, size: 16),
                         ),

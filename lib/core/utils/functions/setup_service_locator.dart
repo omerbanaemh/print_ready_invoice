@@ -5,6 +5,7 @@ import 'package:print_ready_invoice/features/invoice/data/repos/client_repo_impl
 import 'package:print_ready_invoice/features/invoice/data/repos/product_repo_impl.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/add_product_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/delete_product_use_case.dart';
+import 'package:print_ready_invoice/features/invoice/domin/use_cases/duplicate_product_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/fetch_client_details_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/fetch_products_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/update_client_details_use_case.dart';
@@ -47,6 +48,10 @@ void setupServiceLocator() {
 
   getIt.registerSingleton<DeleteProductUseCase>(
     DeleteProductUseCase(getIt.get<ProductRepoImpl>()),
+  );
+
+  getIt.registerSingleton<DuplicateProductUseCase>(
+    DuplicateProductUseCase(getIt.get<ProductRepoImpl>()),
   );
 
 
