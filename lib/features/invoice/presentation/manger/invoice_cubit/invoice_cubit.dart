@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:print_ready_invoice/features/invoice/domin/entities/product_entity.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/add_product_use_case.dart';
+import 'package:print_ready_invoice/features/invoice/domin/use_cases/delete_product_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/fetch_products_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/update_product_use_case.dart';
 
@@ -13,8 +14,9 @@ class InvoiceCubit extends Cubit<InvoiceState> {
   final FetchProductsUseCase fetchProductsUseCase;
   final AddProductUseCase addProductUseCase;
   final UpdateProductUseCase updateProductUseCase;
+  final DeleteProductUseCase deleteProductUseCase;
 
-  InvoiceCubit(this.fetchProductsUseCase, this.addProductUseCase, this.updateProductUseCase) : super(InvoiceInitial());
+  InvoiceCubit(this.fetchProductsUseCase, this.addProductUseCase, this.updateProductUseCase, this.deleteProductUseCase) : super(InvoiceInitial());
   
   final List<ProductEntity> newList = [];
   final List<ProductEntity> products = [
@@ -62,6 +64,15 @@ class InvoiceCubit extends Cubit<InvoiceState> {
   Future<void> updateProduct({required int index, String? productName, int? quantity}) async {
     emit(InvoiceLoading());
     final result = await updateProductUseCase.call(index, productName, quantity);
+    result.fold(
+      (failure) => emit(InvoiceFailure(errorMessage: failure.message)),
+      (_) async => await fetchProducts(),
+    );
+  }
+
+  Future<void> deleteProduct({required int index}) async {
+    emit(InvoiceLoading());
+    final result = await deleteProductUseCase.call(index);
     result.fold(
       (failure) => emit(InvoiceFailure(errorMessage: failure.message)),
       (_) async => await fetchProducts(),
