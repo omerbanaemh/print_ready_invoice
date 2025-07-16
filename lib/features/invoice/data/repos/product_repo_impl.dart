@@ -50,9 +50,13 @@ class ProductRepoImpl extends ProductRepo {
   }
   
   @override
-  Future<Either<Failure, Unit>> duplicateProduct(int index) {
-    // TODO: implement duplicateProduct
-    throw UnimplementedError();
+  Future<Either<Failure, Unit>> duplicateProduct(int index) async{
+    try{
+      productLocalDataSource.duplicateProduct(index);
+      return const Right(unit);
+    }catch(e){
+      return Left(ServerFailure(e.toString()));
+    }
   }
 
 
