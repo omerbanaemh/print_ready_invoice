@@ -1,9 +1,9 @@
 import 'package:print_ready_invoice/features/invoice/domin/entities/product_entity.dart';
 
 class ProductModel {
-  final String prodactName;
-  final int quantity;
-  final double unitPrice;
+  String prodactName;
+  int quantity;
+  double unitPrice;
   ProductModel({
     required this.prodactName,
     required this.quantity,

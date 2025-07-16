@@ -90,14 +90,14 @@ class NewWidget extends StatelessWidget {
               children: [
                 SizedBox(
                   width: 550,
-                  child: InvoiceTable(products: products,),
+                  child: InvoiceTable(products: products, cubit: cubit,),
                 ),
               ],
             ),
           ),
           desktopLayout: (context) => SizedBox(
             width: double.infinity,
-            child: InvoiceTable(products: products,),
+            child: InvoiceTable(products: products, cubit: cubit,),
           ),
         ),
         const SizedBox(height: 12),

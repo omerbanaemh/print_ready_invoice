@@ -7,6 +7,7 @@ import 'package:print_ready_invoice/features/invoice/domin/use_cases/add_product
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/fetch_client_details_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/fetch_products_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/update_client_details_use_case.dart';
+import 'package:print_ready_invoice/features/invoice/domin/use_cases/update_product_use_case.dart';
 
 final getIt = GetIt.instance;
 
@@ -38,6 +39,12 @@ void setupServiceLocator() {
   getIt.registerSingleton<AddProductUseCase>(
     AddProductUseCase(ProductRepoImpl(productLocalDataSource: getIt.get<ProductLocalDataSource>())),
   );
+
+  getIt.registerSingleton<UpdateProductUseCase>(
+    UpdateProductUseCase(productRepo: getIt.get<ProductRepoImpl>()),
+  );
+
+
   //client
   getIt.registerSingleton<FetchClientDetailsUseCase>(
     FetchClientDetailsUseCase(clientRepo: getIt.get<ClientRepoImpl>()),

@@ -1,19 +1,20 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:bloc/bloc.dart';
-import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
 import 'package:print_ready_invoice/features/invoice/domin/entities/product_entity.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/add_product_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/fetch_products_use_case.dart';
+import 'package:print_ready_invoice/features/invoice/domin/use_cases/update_product_use_case.dart';
 
 part 'invoice_state.dart';
 
 class InvoiceCubit extends Cubit<InvoiceState> {
   final FetchProductsUseCase fetchProductsUseCase;
   final AddProductUseCase addProductUseCase;
+  final UpdateProductUseCase updateProductUseCase;
 
-  InvoiceCubit(this.fetchProductsUseCase, this.addProductUseCase) : super(InvoiceInitial());
+  InvoiceCubit(this.fetchProductsUseCase, this.addProductUseCase, this.updateProductUseCase) : super(InvoiceInitial());
   
   final List<ProductEntity> newList = [];
   final List<ProductEntity> products = [
@@ -38,12 +39,7 @@ class InvoiceCubit extends Cubit<InvoiceState> {
       unitPrice: 67,
     ),
   ];
-  final List<String> pro = [
-    'UI/UX Design Package',
-    'Cloud Hosting (Annual)',
-    'Support & Maintenance',
-    'Custom Plugin Development',
-  ];
+
 
   Future<void> fetchProducts() async {
     emit(InvoiceLoading());
@@ -57,6 +53,15 @@ class InvoiceCubit extends Cubit<InvoiceState> {
   Future<void> addProduct() async {
     emit(InvoiceLoading());
     final result = await addProductUseCase.call();
+    result.fold(
+      (failure) => emit(InvoiceFailure(errorMessage: failure.message)),
+      (_) async => await fetchProducts(),
+    );
+  }
+
+  Future<void> updateProduct({required int index, String? productName, int? quantity}) async {
+    emit(InvoiceLoading());
+    final result = await updateProductUseCase.call(index, productName, quantity);
     result.fold(
       (failure) => emit(InvoiceFailure(errorMessage: failure.message)),
       (_) async => await fetchProducts(),
@@ -99,20 +104,6 @@ class InvoiceCubit extends Cubit<InvoiceState> {
   }
 
 
-  void updateProduct(int index, String productName) {
-    final matchedProduct = products.firstWhere(
-      (p) => p.prodactName == productName,
-      orElse: () => ProductEntity(
-        prodactName: 'Select Product...',
-        quantity: 0,
-        unitPrice: 0,
-      ),
-    );
-
-    newList[index] = matchedProduct; 
-    emit(InvoiceLoaded(products: newList));
-    _updateTotals(newList);
-  }
 
   void updateQuantity(int index, int quantity) {
     newList[index].quantity = quantity;

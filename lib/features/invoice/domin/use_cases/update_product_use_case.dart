@@ -8,8 +8,8 @@ class UpdateProductUseCase {
   UpdateProductUseCase({required this.productRepo});
 
 
-  Future<Either<Failure, Unit>> call(String? productName, int? quantity) async {
-    return productRepo.updateProduct(productName, quantity);
+  Future<Either<Failure, Unit>> call(int index, String? productName, int? quantity) async {
+    return productRepo.updateProduct(index, productName, quantity);
   }
   
 }

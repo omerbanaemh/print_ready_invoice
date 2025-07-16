@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/features/invoice/domin/entities/product_entity.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/manger/invoice_cubit/invoice_cubit.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
 class InvoiceTable extends StatelessWidget {
   const InvoiceTable({
-    super.key, required this.products,
+    super.key, required this.products, required this.cubit,
   });
 
-  // final InvoiceCubit cubit;
+  final InvoiceCubit cubit;
   final List<ProductEntity> products;
 
   @override
@@ -85,22 +86,23 @@ class InvoiceTable extends StatelessWidget {
                           ),
                         )
                         .toList(),
-                    // onChanged: (product) {
-                    //   if (product != null) {
-                    //     cubit.updateProduct(index, product);
-                    //   }
-                    // },
+                    onChanged: (product) {
+                      if (product != null) {
+                        cubit.updateProduct(index: index, productName: product);
+                      }
+                    },
                   ),
                 ),
                 DataCell(
                   FormBuilderTextField(
                     name: 'quantity_$index',
                     initialValue: item.quantity.toString(),
-                    // onChanged: (value) {
-                    //   if (value != null && int.tryParse(value) != null) {
-                    //     cubit.updateQuantity(index, int.parse(value));
-                    //   }
-                    // },
+                    onChanged: (value) {
+                      final int? quantity = int.tryParse(value ?? '');
+                      if (quantity != null) {
+                        cubit.updateProduct(index: index, quantity: quantity);
+                      }
+                    },
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(borderSide: BorderSide.none),

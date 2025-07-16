@@ -13,6 +13,7 @@ import 'package:print_ready_invoice/features/invoice/domin/use_cases/add_product
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/fetch_client_details_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/fetch_products_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/domin/use_cases/update_client_details_use_case.dart';
+import 'package:print_ready_invoice/features/invoice/domin/use_cases/update_product_use_case.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/client_details_cubit/clinet_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/invoice_cubit/invoice_cubit.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/manger/localization_cubit/localization_cubit.dart';
@@ -42,7 +43,10 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(create: (context) => LocalizationCubit()),
         BlocProvider(create: (context) => InvoiceCubit(
-          getIt.get<FetchProductsUseCase>(),getIt.get<AddProductUseCase>())),
+          getIt.get<FetchProductsUseCase>(),
+          getIt.get<AddProductUseCase>(),
+          getIt.get<UpdateProductUseCase>()
+          )),
       ],
 
       child: BlocBuilder<LocalizationCubit, LocalizationState>(

@@ -30,9 +30,13 @@ class ProductRepoImpl extends ProductRepo {
   }
   
   @override
-  Future<Either<Failure, Unit>> updateProduct(String? productName, int? quantity) {
-    // TODO: implement updateProduct
-    throw UnimplementedError();
+  Future<Either<Failure, Unit>> updateProduct(int index, String? productName, int? quantity) async{
+    try{
+      productLocalDataSource.updateProduct(index, productName, quantity);
+      return const Right(unit);
+    }catch(e){
+      return Left(ServerFailure(e.toString()));
+    }
   }
 
 
