@@ -12,9 +12,9 @@ import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/
 import 'package:print_ready_invoice/generated/l10n.dart';
 
 class CustomInvoiceBody extends StatelessWidget {
-  const CustomInvoiceBody({super.key, required this.productDetails});
+  const CustomInvoiceBody({super.key,});
 
-  final ProductDetailsEntity productDetails;
+  // final ProductDetailsEntity productDetails;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -39,7 +39,7 @@ class CustomInvoiceBody extends StatelessWidget {
           ),
           child: Column(
             children: [
-              InvoiceInfoSection(productDetails: productDetails),
+              InvoiceInfoSection(),
               BlocConsumer<InvoiceCubit, InvoiceState>(
                 listener: (context, state) {
                   if (state is InvoiceFailure) {

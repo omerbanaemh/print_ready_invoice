@@ -7,9 +7,9 @@ import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/
 
 
 class InvoiceView extends StatelessWidget {
-  InvoiceView({super.key, required this.productDetails});
+  InvoiceView({super.key, });
 
-  final ProductDetailsEntity productDetails;
+  // final ProductDetailsEntity productDetails;
 
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
 
@@ -32,7 +32,7 @@ class InvoiceView extends StatelessWidget {
                   const SizedBox(height: 20),
                   CustomInvoiceAppBar(scaffoldKey: scaffoldKey),
                   const SizedBox(height: 20),
-                  CustomInvoiceBody(productDetails: productDetails),
+                  CustomInvoiceBody(),
                   const SizedBox(height: 40),
                 ],
               ),

@@ -4,9 +4,9 @@ import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/project_details_section.dart';
 
 class InvoiceInfoSection extends StatelessWidget {
-  const InvoiceInfoSection({super.key, required this.productDetails});
+  const InvoiceInfoSection({super.key, });
 
-final ProductDetailsEntity productDetails;
+// final ProductDetailsEntity productDetails;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -15,7 +15,7 @@ final ProductDetailsEntity productDetails;
           child: ClientDetailsSection(),
         ),
         Expanded(
-          child: ProjectDetailsSection(productDetails: productDetails),
+          child: ProjectDetailsSection(),
         ),
       ],
     );

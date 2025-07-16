@@ -40,9 +40,13 @@ class ProductRepoImpl extends ProductRepo {
   }
   
   @override
-  Future<Either<Failure, Unit>> deleteProduct(int index) {
-    // TODO: implement deleteProduct
-    throw UnimplementedError();
+  Future<Either<Failure, Unit>> deleteProduct(int index) async{
+    try{
+      productLocalDataSource.deleteProduct(index);
+      return const Right(unit);
+    }catch(e){
+      return Left(ServerFailure(e.toString()));
+    }
   }
 
 

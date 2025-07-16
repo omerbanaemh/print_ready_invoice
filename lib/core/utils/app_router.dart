@@ -8,12 +8,12 @@ abstract class AppRouter {
 
   static final router = GoRouter(
     routes: [
-      GoRoute(path: '/', builder: (context, state) => const ProjectDetails()),
+      // GoRoute(path: '/', builder: (context, state) => const ProjectDetails()),
       GoRoute(
-        path: kInvoiceView,
+        path: '/',
         builder: (context, state) {
-          final productDetails = state.extra as ProductDetailsEntity;
-          return InvoiceView(productDetails: productDetails);
+          // final productDetails = state.extra as ProductDetailsEntity;
+          return InvoiceView();
         },
       ),
     ],

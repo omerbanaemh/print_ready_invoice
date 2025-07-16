@@ -67,6 +67,7 @@ class InvoiceTable extends StatelessWidget {
           ...products.asMap().entries.map((entry) {
             final int index = entry.key;
             final ProductEntity item = entry.value;
+            print('index= $index name= ${item.prodactName}  quantity= ${item.quantity}  unitPrice= ${item.unitPrice} ');
             return DataRow(
               cells: [
                 DataCell(
@@ -134,7 +135,7 @@ class InvoiceTable extends StatelessWidget {
                           visualDensity: VisualDensity.compact,
                           constraints: const BoxConstraints(),
                           onPressed: () {
-                            // cubit.removeItem(index);
+                            cubit.deleteProduct(index: index);
                           },
                           icon: const Icon(
                             Icons.delete_outline,
