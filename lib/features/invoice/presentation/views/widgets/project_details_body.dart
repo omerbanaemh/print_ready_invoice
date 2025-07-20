@@ -1,7 +1,8 @@
-
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:print_ready_invoice/core/utils/app_styles.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/custom_background_container.dart';
+import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/custom_button.dart';
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/project_details_form_builder.dart';
 import 'package:print_ready_invoice/generated/l10n.dart';
 
@@ -17,9 +18,15 @@ class ProjectDetailsBody extends StatelessWidget {
           const SizedBox(height: 40),
           Text(
             S.of(context).printReady_invoice,
-            style: AppStyles.styleSemiBold26(
-              context,
-            ).copyWith(color: Colors.blue),
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          CustomButton(
+            backgroundColor: Colors.white,
+            foregroundColor: Colors.black,
+            icon: Icons.light_mode,
+            onPressed: () {
+              AdaptiveTheme.of(context).toggleThemeMode(useSystem: false);
+            },
           ),
           const SizedBox(height: 40),
           CustomBackgroundContainer(
@@ -28,15 +35,11 @@ class ProjectDetailsBody extends StatelessWidget {
               children: [
                 Text(
                   S.of(context).project_details,
-                  style: AppStyles.styleSemiBold20(
-                    context,
-                  ).copyWith(color: Colors.black),
+                  style: TextTheme.of(context).titleLarge,
                 ),
                 Text(
                   S.of(context).printReady_invoice_description,
-                  style: AppStyles.styleRegular12(
-                    context,
-                  ).copyWith(color: Colors.black),
+                  style: TextTheme.of(context).labelSmall,
                 ),
                 const ProjectDetailsFormBuilder(),
               ],

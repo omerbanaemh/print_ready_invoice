@@ -4,7 +4,7 @@ import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/
 import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/invoice_view/project_details_section.dart';
 
 class InvoiceInfoSection extends StatelessWidget {
-  const InvoiceInfoSection({super.key, });
+  const InvoiceInfoSection({super.key, r});
 
 // final ProductDetailsEntity productDetails;
   @override

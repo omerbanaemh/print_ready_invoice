@@ -17,7 +17,7 @@ class ProjectFieldInput extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 24),
-        Text(label, style: AppStyles.styleMedium16(context).copyWith(color: Colors.black)),
+        Text(label, style: Theme.of(context).textTheme.labelMedium),
         const SizedBox(height: 8),
         FormBuilderTextField(
           name: name ,

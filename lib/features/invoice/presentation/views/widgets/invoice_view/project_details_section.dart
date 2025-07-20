@@ -7,6 +7,7 @@ import 'package:print_ready_invoice/generated/l10n.dart';
 class ProjectDetailsSection extends StatelessWidget {
   const ProjectDetailsSection({
     super.key,
+    // required this.productDetails,
   });
 
   // final ProductDetailsEntity productDetails;
@@ -21,14 +22,14 @@ class ProjectDetailsSection extends StatelessWidget {
           style: AppStyles.styleSemiBold16(context).copyWith(color: Colors.black),
         ),
         const SizedBox(height: 10),
-        CustomRichText(late: S.of(context).name_, text: 'productDetails.name'),
-        CustomRichText(late: S.of(context).type, text:' productDetails.type'),
-        CustomRichText(late: S.of(context).framework, text: 'productDetails.frameWork'),
-        CustomRichText(late: S.of(context).technologies, text: 'productDetails.technologies.join'),
-        CustomRichText(
-          late: S.of(context).description,
-          text: 'productDetails.description?? ''',
-        ),
+      //   CustomRichText(late: S.of(context).name_, text: productDetails.name),
+      //   CustomRichText(late: S.of(context).type, text: productDetails.type),
+      //   CustomRichText(late: S.of(context).framework, text: productDetails.frameWork),
+      //   CustomRichText(late: S.of(context).technologies, text: productDetails.technologies.join(', ')),
+      //   CustomRichText(
+      //     late: S.of(context).description,
+      //     text: productDetails.description?? '',
+      //   ),
       ],
     );
   }

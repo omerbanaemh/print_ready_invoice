@@ -12,7 +12,7 @@ import 'package:print_ready_invoice/features/invoice/presentation/views/widgets/
 import 'package:print_ready_invoice/generated/l10n.dart';
 
 class CustomInvoiceBody extends StatelessWidget {
-  const CustomInvoiceBody({super.key,});
+  const CustomInvoiceBody({super.key, });
 
   // final ProductDetailsEntity productDetails;
   @override

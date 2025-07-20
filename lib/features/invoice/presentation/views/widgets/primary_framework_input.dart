@@ -17,8 +17,7 @@ class PrimaryFrameworkInput extends StatelessWidget {
         const SizedBox(height: 24),
         Text(
           S.of(context).project_framework,
-          style: AppStyles.styleMedium16(context).copyWith(color: Colors.black),
-        ),
+          style:Theme.of(context).textTheme.labelMedium),
         const SizedBox(height: 8),
 
         FormBuilderSearchableDropdown<String>(

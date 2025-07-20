@@ -22,7 +22,7 @@ class CustomBackgroundContainer extends StatelessWidget {
           width: SizeConfig.width(context) * widthRatio,
           padding: EdgeInsets.all(padding ?? 20),
           decoration: ShapeDecoration(
-            color: const Color(0xFFFDFDFD),
+            color: Theme.of(context).colorScheme.secondary,
             shape: RoundedRectangleBorder(
               side: BorderSide(width: 1, color: Colors.grey.shade300),
               borderRadius: BorderRadius.circular(12),
